@@ -540,6 +540,11 @@ Class QByteArray
 		pTempObj.pObject = QByteArray_append(pObject,P1)
 		return pTempObj
 
+	Func append_2 P1,P2
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_append_2(pObject,P1,P2)
+		return pTempObj
+
 	Func at P1
 		return QByteArray_at(pObject,P1)
 
@@ -569,7 +574,7 @@ Class QByteArray
 
 	Func fill P1,P2
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_fill(pObject,GetObjectPointerFromRingObject(P1),P2)
+		pTempObj.pObject = QByteArray_fill(pObject,P1,P2)
 		return pTempObj
 
 	Func indexOf P1,P2
@@ -596,7 +601,7 @@ Class QByteArray
 
 	Func leftJustified P1,P2,P3
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_leftJustified(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+		pTempObj.pObject = QByteArray_leftJustified(pObject,P1,P2,P3)
 		return pTempObj
 
 	Func length 
@@ -646,7 +651,7 @@ Class QByteArray
 
 	Func rightJustified P1,P2,P3
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_rightJustified(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+		pTempObj.pObject = QByteArray_rightJustified(pObject,P1,P2,P3)
 		return pTempObj
 
 	Func setNum P1,P2
@@ -708,7 +713,7 @@ Class QByteArray
 
 	Func toPercentEncoding P1,P2,P3
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_toPercentEncoding(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj.pObject = QByteArray_toPercentEncoding(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
 		return pTempObj
 
 	Func toShort P1,P2
@@ -751,7 +756,7 @@ Class QByteArray
 
 	Func fromPercentEncoding P1,P2
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_fromPercentEncoding(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QByteArray_fromPercentEncoding(pObject,GetObjectPointerFromRingObject(P1),P2)
 		return pTempObj
 
 	Func fromRawData P1,P2
@@ -803,7 +808,7 @@ Class QIODevice from QObject
 		return QIODevice_peek(pObject,P1,P2)
 
 	Func putChar P1
-		return QIODevice_putChar(pObject,GetObjectPointerFromRingObject(P1))
+		return QIODevice_putChar(pObject,P1)
 
 	Func read P1,P2
 		return QIODevice_read(pObject,P1,P2)
@@ -820,7 +825,7 @@ Class QIODevice from QObject
 		return QIODevice_setTextModeEnabled(pObject,P1)
 
 	Func ungetChar P1
-		return QIODevice_ungetChar(pObject,GetObjectPointerFromRingObject(P1))
+		return QIODevice_ungetChar(pObject,P1)
 
 	Func write P1,P2
 		return QIODevice_write(pObject,P1,P2)
@@ -1651,7 +1656,9 @@ Class QVariant
 		return QVariant_toLineF(pObject)
 
 	Func toLocale 
-		return QVariant_toLocale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QVariant_toLocale(pObject)
+		return pTempObj
 
 	Func toLongLong P1
 		return QVariant_toLongLong(pObject,GetObjectPointerFromRingObject(P1))
@@ -3806,7 +3813,7 @@ Class QChar
 
 	Func fromLatin1 P1
 		pTempObj = new QChar
-		pTempObj.pObject = QChar_fromLatin1(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QChar_fromLatin1(pObject,P1)
 		return pTempObj
 
 	Func hasMirrored_2 P1
@@ -3968,7 +3975,9 @@ Class QTextStream
 		return QTextStream_integerBase(pObject)
 
 	Func locale 
-		return QTextStream_locale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QTextStream_locale(pObject)
+		return pTempObj
 
 	Func numberFlags 
 		return QTextStream_numberFlags(pObject)
@@ -4058,6 +4067,269 @@ Class QTextStream
 
 	Func string 
 		return QTextStream_string(pObject)
+
+Class QLocale
+
+	pObject
+
+	Func init P1
+		pObject = QLocale_new(P1)
+		return self
+
+	Func delete
+		pObject = QLocale_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func amText 
+		return QLocale_amText(pObject)
+
+	Func bcp47Name 
+		return QLocale_bcp47Name(pObject)
+
+	Func country 
+		return QLocale_country(pObject)
+
+	Func createSeparatedList P1
+		return QLocale_createSeparatedList(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func currencySymbol P1
+		return QLocale_currencySymbol(pObject,P1)
+
+	Func dateFormat P1
+		return QLocale_dateFormat(pObject,P1)
+
+	Func dateTimeFormat P1
+		return QLocale_dateTimeFormat(pObject,P1)
+
+	Func dayName P1,P2
+		return QLocale_dayName(pObject,P1,P2)
+
+	Func decimalPoint 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_decimalPoint(pObject)
+		return pTempObj
+
+	Func exponential 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_exponential(pObject)
+		return pTempObj
+
+	Func firstDayOfWeek 
+		return QLocale_firstDayOfWeek(pObject)
+
+	Func groupSeparator 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_groupSeparator(pObject)
+		return pTempObj
+
+	Func language 
+		return QLocale_language(pObject)
+
+	Func measurementSystem 
+		return QLocale_measurementSystem(pObject)
+
+	Func monthName P1,P2
+		return QLocale_monthName(pObject,P1,P2)
+
+	Func name 
+		return QLocale_name(pObject)
+
+	Func nativeCountryName 
+		return QLocale_nativeCountryName(pObject)
+
+	Func nativeLanguageName 
+		return QLocale_nativeLanguageName(pObject)
+
+	Func negativeSign 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_negativeSign(pObject)
+		return pTempObj
+
+	Func numberOptions 
+		return QLocale_numberOptions(pObject)
+
+	Func percent 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_percent(pObject)
+		return pTempObj
+
+	Func pmText 
+		return QLocale_pmText(pObject)
+
+	Func positiveSign 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_positiveSign(pObject)
+		return pTempObj
+
+	Func quoteString P1,P2
+		return QLocale_quoteString(pObject,P1,P2)
+
+	Func quoteString_2 P1,P2
+		return QLocale_quoteString_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func script 
+		return QLocale_script(pObject)
+
+	Func setNumberOptions P1
+		return QLocale_setNumberOptions(pObject,P1)
+
+	Func standaloneDayName P1,P2
+		return QLocale_standaloneDayName(pObject,P1,P2)
+
+	Func standaloneMonthName P1,P2
+		return QLocale_standaloneMonthName(pObject,P1,P2)
+
+	Func textDirection 
+		return QLocale_textDirection(pObject)
+
+	Func timeFormat P1
+		return QLocale_timeFormat(pObject,P1)
+
+	Func toDouble P1,P2
+		return QLocale_toDouble(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toDouble_2 P1,P2
+		return QLocale_toDouble_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toFloat P1,P2
+		return QLocale_toFloat(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toFloat_2 P1,P2
+		return QLocale_toFloat_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toInt P1,P2
+		return QLocale_toInt(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toInt_2 P1,P2
+		return QLocale_toInt_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toLongLong P1,P2
+		return QLocale_toLongLong(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toLongLong_2 P1,P2
+		return QLocale_toLongLong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toLower P1
+		return QLocale_toLower(pObject,P1)
+
+	Func toShort P1,P2
+		return QLocale_toShort(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toShort_2 P1,P2
+		return QLocale_toShort_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toString P1
+		return QLocale_toString(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toString_2 P1
+		return QLocale_toString_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toString_4 P1
+		return QLocale_toString_4(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toString_5 P1
+		return QLocale_toString_5(pObject,P1)
+
+	Func toString_6 P1
+		return QLocale_toString_6(pObject,P1)
+
+	Func toString_7 P1
+		return QLocale_toString_7(pObject,P1)
+
+	Func toString_8 P1,P2,P3
+		return QLocale_toString_8(pObject,P1,P2,P3)
+
+	Func toString_9 P1,P2,P3
+		return QLocale_toString_9(pObject,P1,P2,P3)
+
+	Func toString_10 P1,P2
+		return QLocale_toString_10(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_11 P1,P2
+		return QLocale_toString_11(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_12 P1,P2
+		return QLocale_toString_12(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_13 P1,P2
+		return QLocale_toString_13(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_14 P1,P2
+		return QLocale_toString_14(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_15 P1,P2
+		return QLocale_toString_15(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toTime P1,P2
+		pTempObj = new QTime
+		pTempObj.pObject = QLocale_toTime(pObject,P1,P2)
+		return pTempObj
+
+	Func toTime_2 P1,P2
+		pTempObj = new QTime
+		pTempObj.pObject = QLocale_toTime_2(pObject,P1,P2)
+		return pTempObj
+
+	Func toUInt P1,P2
+		return QLocale_toUInt(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toUInt_2 P1,P2
+		return QLocale_toUInt_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toULongLong P1,P2
+		return QLocale_toULongLong(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toULongLong_2 P1,P2
+		return QLocale_toULongLong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toUShort P1,P2
+		return QLocale_toUShort(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toUShort_2 P1,P2
+		return QLocale_toUShort_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toUpper P1
+		return QLocale_toUpper(pObject,P1)
+
+	Func uiLanguages 
+		pTempObj = new QStringList
+		pTempObj.pObject = QLocale_uiLanguages(pObject)
+		return pTempObj
+
+	Func weekdays 
+		return QLocale_weekdays(pObject)
+
+	Func zeroDigit 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_zeroDigit(pObject)
+		return pTempObj
+
+	Func c 
+		pTempObj = new QLocale
+		pTempObj.pObject = QLocale_c(pObject)
+		return pTempObj
+
+	Func countryToString P1
+		return QLocale_countryToString(pObject,P1)
+
+	Func languageToString P1
+		return QLocale_languageToString(pObject,P1)
+
+	Func matchingLocales P1,P2,P3
+		return QLocale_matchingLocales(pObject,P1,P2,P3)
+
+	Func scriptToString P1
+		return QLocale_scriptToString(pObject,P1)
+
+	Func setDefault P1
+		return QLocale_setDefault(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func system 
+		pTempObj = new QLocale
+		pTempObj.pObject = QLocale_system(pObject)
+		return pTempObj
 
 Class QThread from QObject
 
@@ -11553,7 +11825,9 @@ Class QWidget from QObject
 		return QWidget_layoutDirection(pObject)
 
 	Func locale 
-		return QWidget_locale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QWidget_locale(pObject)
+		return pTempObj
 
 	Func mapFrom P1,P2
 		pTempObj = new QPoint
@@ -13755,6 +14029,9 @@ Class QComboBox from QWidget
 	Func addItem P1,P2
 		return QComboBox_addItem(pObject,P1,P2)
 
+	Func addItems P1
+		return QComboBox_addItems(pObject,GetObjectPointerFromRingObject(P1))
+
 	Func completer 
 		pTempObj = new QCompleter
 		pTempObj.pObject = QComboBox_completer(pObject)
@@ -13913,6 +14190,9 @@ Class QComboBox from QWidget
 
 	Func setCurrentIndex P1
 		return QComboBox_setCurrentIndex(pObject,P1)
+
+	Func setCurrentText P1
+		return QComboBox_setCurrentText(pObject,P1)
 
 	Func setEditText P1
 		return QComboBox_setEditText(pObject,P1)
@@ -16750,6 +17030,9 @@ Class QMessageBox from QDialog
 
 	Func setEscapeButton P1
 		return QMessageBox_setEscapeButton(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setIcon P1
+		return QMessageBox_setIcon(pObject,P1)
 
 	Func setIconPixmap P1
 		return QMessageBox_setIconPixmap(pObject,GetObjectPointerFromRingObject(P1))
@@ -23559,7 +23842,9 @@ Class QWebEngineView from QWidget
 		return QWebEngineView_load(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func page 
-		return QWebEngineView_page(pObject)
+		pTempObj = new QWebEnginePage
+		pTempObj.pObject = QWebEngineView_page(pObject)
+		return pTempObj
 
 	Func pageAction P1
 		pTempObj = new QAction
@@ -23648,6 +23933,345 @@ Class QWebEngineView from QWidget
 
 	Func geturlChangedEvent 
 		return QWebEngineView_geturlChangedEvent(pObject)
+
+	Func print P1,P2
+		return QWebEngineView_print(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+Class QWebEnginePage from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QWebEnginePage_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QWebEnginePage_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func action P1
+		pTempObj = new QAction
+		pTempObj.pObject = QWebEnginePage_action(pObject,P1)
+		return pTempObj
+
+	Func backgroundColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QWebEnginePage_backgroundColor(pObject)
+		return pTempObj
+
+	Func contentsSize 
+		return QWebEnginePage_contentsSize(pObject)
+
+	Func createStandardContextMenu 
+		pTempObj = new QMenu
+		pTempObj.pObject = QWebEnginePage_createStandardContextMenu(pObject)
+		return pTempObj
+
+	Func devToolsPage 
+		pTempObj = new QWebEnginePage
+		pTempObj.pObject = QWebEnginePage_devToolsPage(pObject)
+		return pTempObj
+
+	Func download P1,P2
+		return QWebEnginePage_download(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func findText P1,P2,P3
+		return QWebEnginePage_findText(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func hasSelection 
+		return QWebEnginePage_hasSelection(pObject)
+
+	Func history 
+		return QWebEnginePage_history(pObject)
+
+	Func icon 
+		pTempObj = new QIcon
+		pTempObj.pObject = QWebEnginePage_icon(pObject)
+		return pTempObj
+
+	Func iconUrl 
+		pTempObj = new QUrl
+		pTempObj.pObject = QWebEnginePage_iconUrl(pObject)
+		return pTempObj
+
+	Func inspectedPage 
+		pTempObj = new QWebEnginePage
+		pTempObj.pObject = QWebEnginePage_inspectedPage(pObject)
+		return pTempObj
+
+	Func isAudioMuted 
+		return QWebEnginePage_isAudioMuted(pObject)
+
+	Func load_2 P1
+		return QWebEnginePage_load_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func load_3 P1
+		return QWebEnginePage_load_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func print P1,P2
+		return QWebEnginePage_print(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func profile 
+		return QWebEnginePage_profile(pObject)
+
+	Func recentlyAudible 
+		return QWebEnginePage_recentlyAudible(pObject)
+
+	Func replaceMisspelledWord P1
+		return QWebEnginePage_replaceMisspelledWord(pObject,P1)
+
+	Func requestedUrl 
+		pTempObj = new QUrl
+		pTempObj.pObject = QWebEnginePage_requestedUrl(pObject)
+		return pTempObj
+
+	Func runJavaScript P1
+		return QWebEnginePage_runJavaScript(pObject,P1)
+
+	Func runJavaScript_2 P1,P2
+		return QWebEnginePage_runJavaScript_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func save P1,P2
+		return QWebEnginePage_save(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func scrollPosition 
+		pTempObj = new QPointF
+		pTempObj.pObject = QWebEnginePage_scrollPosition(pObject)
+		return pTempObj
+
+	Func selectedText 
+		return QWebEnginePage_selectedText(pObject)
+
+	Func setAudioMuted P1
+		return QWebEnginePage_setAudioMuted(pObject,P1)
+
+	Func setBackgroundColor P1
+		return QWebEnginePage_setBackgroundColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setContent P1,P2,P3
+		return QWebEnginePage_setContent(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+
+	Func setDevToolsPage P1
+		return QWebEnginePage_setDevToolsPage(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFeaturePermission P1,P2,P3
+		return QWebEnginePage_setFeaturePermission(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func setHtml P1,P2
+		return QWebEnginePage_setHtml(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setInspectedPage P1
+		return QWebEnginePage_setInspectedPage(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUrl P1
+		return QWebEnginePage_setUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setView P1
+		return QWebEnginePage_setView(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWebChannel P1,P2
+		return QWebEnginePage_setWebChannel(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setWebChannel_2 P1
+		return QWebEnginePage_setWebChannel_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setZoomFactor P1
+		return QWebEnginePage_setZoomFactor(pObject,P1)
+
+	Func settings 
+		return QWebEnginePage_settings(pObject)
+
+	Func title 
+		return QWebEnginePage_title(pObject)
+
+	Func triggerAction P1,P2
+		return QWebEnginePage_triggerAction(pObject,P1,P2)
+
+	Func url 
+		pTempObj = new QUrl
+		pTempObj.pObject = QWebEnginePage_url(pObject)
+		return pTempObj
+
+	Func view 
+		pTempObj = new QWidget
+		pTempObj.pObject = QWebEnginePage_view(pObject)
+		return pTempObj
+
+	Func webChannel 
+		return QWebEnginePage_webChannel(pObject)
+
+	Func zoomFactor 
+		return QWebEnginePage_zoomFactor(pObject)
+
+	Func setaudioMutedChangedEvent P1
+		return QWebEnginePage_setaudioMutedChangedEvent(pObject,P1)
+
+	Func setauthenticationRequiredEvent P1
+		return QWebEnginePage_setauthenticationRequiredEvent(pObject,P1)
+
+	Func setcontentsSizeChangedEvent P1
+		return QWebEnginePage_setcontentsSizeChangedEvent(pObject,P1)
+
+	Func setfeaturePermissionRequestCanceledEvent P1
+		return QWebEnginePage_setfeaturePermissionRequestCanceledEvent(pObject,P1)
+
+	Func setfeaturePermissionRequestedEvent P1
+		return QWebEnginePage_setfeaturePermissionRequestedEvent(pObject,P1)
+
+	Func setfindTextFinishedEvent P1
+		return QWebEnginePage_setfindTextFinishedEvent(pObject,P1)
+
+	Func setfullScreenRequestedEvent P1
+		return QWebEnginePage_setfullScreenRequestedEvent(pObject,P1)
+
+	Func setgeometryChangeRequestedEvent P1
+		return QWebEnginePage_setgeometryChangeRequestedEvent(pObject,P1)
+
+	Func seticonChangedEvent P1
+		return QWebEnginePage_seticonChangedEvent(pObject,P1)
+
+	Func seticonUrlChangedEvent P1
+		return QWebEnginePage_seticonUrlChangedEvent(pObject,P1)
+
+	Func setlinkHoveredEvent P1
+		return QWebEnginePage_setlinkHoveredEvent(pObject,P1)
+
+	Func setloadFinishedEvent P1
+		return QWebEnginePage_setloadFinishedEvent(pObject,P1)
+
+	Func setloadProgressEvent P1
+		return QWebEnginePage_setloadProgressEvent(pObject,P1)
+
+	Func setloadStartedEvent P1
+		return QWebEnginePage_setloadStartedEvent(pObject,P1)
+
+	Func setpdfPrintingFinishedEvent P1
+		return QWebEnginePage_setpdfPrintingFinishedEvent(pObject,P1)
+
+	Func setprintRequestedEvent P1
+		return QWebEnginePage_setprintRequestedEvent(pObject,P1)
+
+	Func setproxyAuthenticationRequiredEvent P1
+		return QWebEnginePage_setproxyAuthenticationRequiredEvent(pObject,P1)
+
+	Func setquotaRequestedEvent P1
+		return QWebEnginePage_setquotaRequestedEvent(pObject,P1)
+
+	Func setrecentlyAudibleChangedEvent P1
+		return QWebEnginePage_setrecentlyAudibleChangedEvent(pObject,P1)
+
+	Func setrecommendedStateChangedEvent P1
+		return QWebEnginePage_setrecommendedStateChangedEvent(pObject,P1)
+
+	Func setregisterProtocolHandlerRequestedEvent P1
+		return QWebEnginePage_setregisterProtocolHandlerRequestedEvent(pObject,P1)
+
+	Func setscrollPositionChangedEvent P1
+		return QWebEnginePage_setscrollPositionChangedEvent(pObject,P1)
+
+	Func setselectClientCertificateEvent P1
+		return QWebEnginePage_setselectClientCertificateEvent(pObject,P1)
+
+	Func setselectionChangedEvent P1
+		return QWebEnginePage_setselectionChangedEvent(pObject,P1)
+
+	Func settitleChangedEvent P1
+		return QWebEnginePage_settitleChangedEvent(pObject,P1)
+
+	Func seturlChangedEvent P1
+		return QWebEnginePage_seturlChangedEvent(pObject,P1)
+
+	Func setvisibleChangedEvent P1
+		return QWebEnginePage_setvisibleChangedEvent(pObject,P1)
+
+	Func setwindowCloseRequestedEvent P1
+		return QWebEnginePage_setwindowCloseRequestedEvent(pObject,P1)
+
+	Func getaudioMutedChangedEvent 
+		return QWebEnginePage_getaudioMutedChangedEvent(pObject)
+
+	Func getauthenticationRequiredEvent 
+		return QWebEnginePage_getauthenticationRequiredEvent(pObject)
+
+	Func getcontentsSizeChangedEvent 
+		return QWebEnginePage_getcontentsSizeChangedEvent(pObject)
+
+	Func getfeaturePermissionRequestCanceledEvent 
+		return QWebEnginePage_getfeaturePermissionRequestCanceledEvent(pObject)
+
+	Func getfeaturePermissionRequestedEvent 
+		return QWebEnginePage_getfeaturePermissionRequestedEvent(pObject)
+
+	Func getfindTextFinishedEvent 
+		return QWebEnginePage_getfindTextFinishedEvent(pObject)
+
+	Func getfullScreenRequestedEvent 
+		return QWebEnginePage_getfullScreenRequestedEvent(pObject)
+
+	Func getgeometryChangeRequestedEvent 
+		return QWebEnginePage_getgeometryChangeRequestedEvent(pObject)
+
+	Func geticonChangedEvent 
+		return QWebEnginePage_geticonChangedEvent(pObject)
+
+	Func geticonUrlChangedEvent 
+		return QWebEnginePage_geticonUrlChangedEvent(pObject)
+
+	Func getlinkHoveredEvent 
+		return QWebEnginePage_getlinkHoveredEvent(pObject)
+
+	Func getloadFinishedEvent 
+		return QWebEnginePage_getloadFinishedEvent(pObject)
+
+	Func getloadProgressEvent 
+		return QWebEnginePage_getloadProgressEvent(pObject)
+
+	Func getloadStartedEvent 
+		return QWebEnginePage_getloadStartedEvent(pObject)
+
+	Func getpdfPrintingFinishedEvent 
+		return QWebEnginePage_getpdfPrintingFinishedEvent(pObject)
+
+	Func getprintRequestedEvent 
+		return QWebEnginePage_getprintRequestedEvent(pObject)
+
+	Func getproxyAuthenticationRequiredEvent 
+		return QWebEnginePage_getproxyAuthenticationRequiredEvent(pObject)
+
+	Func getquotaRequestedEvent 
+		return QWebEnginePage_getquotaRequestedEvent(pObject)
+
+	Func getrecentlyAudibleChangedEvent 
+		return QWebEnginePage_getrecentlyAudibleChangedEvent(pObject)
+
+	Func getrecommendedStateChangedEvent 
+		return QWebEnginePage_getrecommendedStateChangedEvent(pObject)
+
+	Func getregisterProtocolHandlerRequestedEvent 
+		return QWebEnginePage_getregisterProtocolHandlerRequestedEvent(pObject)
+
+	Func getscrollPositionChangedEvent 
+		return QWebEnginePage_getscrollPositionChangedEvent(pObject)
+
+	Func getselectClientCertificateEvent 
+		return QWebEnginePage_getselectClientCertificateEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QWebEnginePage_getselectionChangedEvent(pObject)
+
+	Func gettitleChangedEvent 
+		return QWebEnginePage_gettitleChangedEvent(pObject)
+
+	Func geturlChangedEvent 
+		return QWebEnginePage_geturlChangedEvent(pObject)
+
+	Func getvisibleChangedEvent 
+		return QWebEnginePage_getvisibleChangedEvent(pObject)
+
+	Func getwindowCloseRequestedEvent 
+		return QWebEnginePage_getwindowCloseRequestedEvent(pObject)
 
 Class QSerialPort from QIODevice
 
@@ -24339,7 +24963,9 @@ Class QTextToSpeech from QObject
 		return pTempObj
 
 	Func locale 
-		return QTextToSpeech_locale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QTextToSpeech_locale(pObject)
+		return pTempObj
 
 	Func pitch 
 		return QTextToSpeech_pitch(pObject)
@@ -28345,7 +28971,9 @@ Class QChart from QGraphicsWidget
 		return pTempObj
 
 	Func locale 
-		return QChart_locale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QChart_locale(pObject)
+		return pTempObj
 
 	Func localizeNumbers 
 		return QChart_localizeNumbers(pObject)
@@ -30451,11 +31079,11 @@ Class QValueAxis from QAbstractAxis
 	Func setRange P1,P2
 		return QValueAxis_setRange(pObject,P1,P2)
 
-	Func setTickAnchor P1
-		return QValueAxis_setTickAnchor(pObject,P1)
-
 	Func setTickCount P1
 		return QValueAxis_setTickCount(pObject,P1)
+
+	Func setTickAnchor P1
+		return QValueAxis_setTickAnchor(pObject,P1)
 
 	Func setTickInterval P1
 		return QValueAxis_setTickInterval(pObject,P1)
@@ -30466,14 +31094,14 @@ Class QValueAxis from QAbstractAxis
 	Func tickAnchor 
 		return QValueAxis_tickAnchor(pObject)
 
-	Func tickCount 
-		return QValueAxis_tickCount(pObject)
-
 	Func tickInterval 
 		return QValueAxis_tickInterval(pObject)
 
 	Func tickType 
 		return QValueAxis_tickType(pObject)
+
+	Func tickCount 
+		return QValueAxis_tickCount(pObject)
 
 	Func setlabelFormatChangedEvent P1
 		return QValueAxis_setlabelFormatChangedEvent(pObject,P1)
