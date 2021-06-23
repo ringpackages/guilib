@@ -5230,7 +5230,7 @@ Class QPainter
 		return QPainter_worldMatrixEnabled(pObject)
 
 	Func worldTransform 
-		pTempObj = new QTransform
+		pTempObj = new QTransform 
 		pTempObj.pObject = QPainter_worldTransform(pObject)
 		return pTempObj
 
@@ -8262,6 +8262,11 @@ Class QVector3D
 		pTempObj.pObject = QVector3D_normalized(pObject)
 		return pTempObj
 
+	Func project P1,P2,P3
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_project(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
 	Func setX P1
 		return QVector3D_setX(pObject,P1)
 
@@ -8289,6 +8294,11 @@ Class QVector3D
 	Func toVector4D 
 		pTempObj = new QVector4D
 		pTempObj.pObject = QVector3D_toVector4D(pObject)
+		return pTempObj
+
+	Func unproject P1,P2,P3
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_unproject(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
 	Func x 
@@ -14897,6 +14907,11 @@ Class QTabWidget from QWidget
 	Func ObjectPointer
 		return pObject
 
+	Func tabBar 
+		pTempObj = new QTabBar
+		pTempObj.pObject = QTabWidget_tabBar(pObject)
+		return pTempObj
+
 	Func addTab P1,P2
 		return QTabWidget_addTab(pObject,GetObjectPointerFromRingObject(P1),P2)
 
@@ -19421,7 +19436,7 @@ Class QLayout from QObject
 		return QLayout_update(pObject)
 
 	Func closestAcceptableSize P1,P2
-		pTempObj = new QSize
+		pTempObj = new QSize 
 		pTempObj.pObject = QLayout_closestAcceptableSize(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
@@ -19866,7 +19881,7 @@ Class QListView from QAbstractItemView
 		return QListView_flow(pObject)
 
 	Func gridSize 
-		pTempObj = new QSize
+		pTempObj = new QSize 
 		pTempObj.pObject = QListView_gridSize(pObject)
 		return pTempObj
 
@@ -31815,6 +31830,20 @@ Class QCompleter3 from QCompleter
 
 	Func delete
 		pObject = QCompleter3_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QCompleter4 from QCompleter
+
+	pObject
+
+	Func init P1,P2
+		pObject = QCompleter4_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QCompleter4_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
