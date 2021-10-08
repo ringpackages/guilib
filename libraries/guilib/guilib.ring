@@ -1,3 +1,11 @@
+# Check if Light GUILib is used in the same project!
+	if isGlobal(:C_USING_LIGHTGUILIB)
+		? "Warning: Trying to load GUILib while LightGUILib is already used! - Operation Canceled"
+		return
+	ok
+
+C_USING_GUILIB = True
+
 # Load the DLL files 
 	if iswindows()
 		LoadLib("ringqt.dll")
@@ -6,13 +14,6 @@
 	but islinux()
 		LoadLib("libringqt.so")
 	ok
-# Load the main library 
-	load "constants/qt.rh"
-	load "classes/ring_qt.ring"
-# Load the MVC Custom classes for the GUILib 
-		load "mvc/controllerparent.ring"
-		load "mvc/viewparent.ring"
-# Load the modern library (Better functions and classes)	
-	load "modernlib/modernlib.ring"
-# Load the Web Assembly library 
-	load "webassembly/webassembly.ring"
+
+# Load the files
+	load "guilibfiles.ring"
