@@ -1667,7 +1667,9 @@ Class QVariant
 		return QVariant_toLine(pObject)
 
 	Func toLineF 
-		return QVariant_toLineF(pObject)
+		pTempObj = new QLineF
+		pTempObj.pObject = QVariant_toLineF(pObject)
+		return pTempObj
 
 	Func toLocale 
 		pTempObj = new QLocale
@@ -1678,7 +1680,9 @@ Class QVariant
 		return QVariant_toLongLong(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func toModelIndex 
-		return QVariant_toModelIndex(pObject)
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QVariant_toModelIndex(pObject)
+		return pTempObj
 
 	Func toPoint 
 		pTempObj = new QPoint
@@ -1699,10 +1703,14 @@ Class QVariant
 		return pTempObj
 
 	Func toRectF 
-		return QVariant_toRectF(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QVariant_toRectF(pObject)
+		return pTempObj
 
 	Func toRegExp 
-		return QVariant_toRegExp(pObject)
+		pTempObj = new QRegExp
+		pTempObj.pObject = QVariant_toRegExp(pObject)
+		return pTempObj
 
 	Func toRegularExpression 
 		pTempObj = new QRegularExpression
@@ -4709,6 +4717,548 @@ Class QMutexLocker
 	Func unlock 
 		return QMutexLocker_unlock(pObject)
 
+Class QRectF
+
+	pObject
+
+	Func init P1,P2,P3,P4
+		pObject = QRectF_new(P1,P2,P3,P4)
+		return self
+
+	Func delete
+		pObject = QRectF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func adjust P1,P2,P3,P4
+		return QRectF_adjust(pObject,P1,P2,P3,P4)
+
+	Func adjusted P1,P2,P3,P4
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_adjusted(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func bottom 
+		return QRectF_bottom(pObject)
+
+	Func bottomLeft 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_bottomLeft(pObject)
+		return pTempObj
+
+	Func bottomRight 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_bottomRight(pObject)
+		return pTempObj
+
+	Func center 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_center(pObject)
+		return pTempObj
+
+	Func contains P1
+		return QRectF_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func contains_2 P1
+		return QRectF_contains_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func contains_3 P1,P2
+		return QRectF_contains_3(pObject,P1,P2)
+
+	Func getCoords P1,P2,P3,P4
+		return QRectF_getCoords(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func getRect P1,P2,P3,P4
+		return QRectF_getRect(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func height 
+		return QRectF_height(pObject)
+
+	Func intersected P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_intersected(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func intersects P1
+		return QRectF_intersects(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isEmpty 
+		return QRectF_isEmpty(pObject)
+
+	Func isNull 
+		return QRectF_isNull(pObject)
+
+	Func isValid 
+		return QRectF_isValid(pObject)
+
+	Func left 
+		return QRectF_left(pObject)
+
+	Func marginsAdded P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_marginsAdded(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func marginsRemoved P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_marginsRemoved(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func moveBottom P1
+		return QRectF_moveBottom(pObject,P1)
+
+	Func moveBottomLeft P1
+		return QRectF_moveBottomLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveBottomRight P1
+		return QRectF_moveBottomRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveCenter P1
+		return QRectF_moveCenter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveLeft P1
+		return QRectF_moveLeft(pObject,P1)
+
+	Func moveRight P1
+		return QRectF_moveRight(pObject,P1)
+
+	Func moveTo P1,P2
+		return QRectF_moveTo(pObject,P1,P2)
+
+	Func moveTo_2 P1
+		return QRectF_moveTo_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveTop P1
+		return QRectF_moveTop(pObject,P1)
+
+	Func moveTopLeft P1
+		return QRectF_moveTopLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveTopRight P1
+		return QRectF_moveTopRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func normalized 
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_normalized(pObject)
+		return pTempObj
+
+	Func right 
+		return QRectF_right(pObject)
+
+	Func setBottom P1
+		return QRectF_setBottom(pObject,P1)
+
+	Func setBottomLeft P1
+		return QRectF_setBottomLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBottomRight P1
+		return QRectF_setBottomRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCoords P1,P2,P3,P4
+		return QRectF_setCoords(pObject,P1,P2,P3,P4)
+
+	Func setHeight P1
+		return QRectF_setHeight(pObject,P1)
+
+	Func setLeft P1
+		return QRectF_setLeft(pObject,P1)
+
+	Func setRect P1,P2,P3,P4
+		return QRectF_setRect(pObject,P1,P2,P3,P4)
+
+	Func setRight P1
+		return QRectF_setRight(pObject,P1)
+
+	Func setSize P1
+		return QRectF_setSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTop P1
+		return QRectF_setTop(pObject,P1)
+
+	Func setTopLeft P1
+		return QRectF_setTopLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTopRight P1
+		return QRectF_setTopRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWidth P1
+		return QRectF_setWidth(pObject,P1)
+
+	Func setX P1
+		return QRectF_setX(pObject,P1)
+
+	Func setY P1
+		return QRectF_setY(pObject,P1)
+
+	Func size 
+		return QRectF_size(pObject)
+
+	Func toAlignedRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QRectF_toAlignedRect(pObject)
+		return pTempObj
+
+	Func toRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QRectF_toRect(pObject)
+		return pTempObj
+
+	Func top 
+		return QRectF_top(pObject)
+
+	Func topLeft 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_topLeft(pObject)
+		return pTempObj
+
+	Func topRight 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_topRight(pObject)
+		return pTempObj
+
+	Func translate P1,P2
+		return QRectF_translate(pObject,P1,P2)
+
+	Func translate_2 P1
+		return QRectF_translate_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func translated P1,P2
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_translated(pObject,P1,P2)
+		return pTempObj
+
+	Func translated_2 P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_translated_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func transposed 
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_transposed(pObject)
+		return pTempObj
+
+	Func united P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_united(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func width 
+		return QRectF_width(pObject)
+
+	Func x 
+		return QRectF_x(pObject)
+
+	Func y 
+		return QRectF_y(pObject)
+
+Class QLineF
+
+	pObject
+
+	Func init P1,P2,P3,P4
+		pObject = QLineF_new(P1,P2,P3,P4)
+		return self
+
+	Func delete
+		pObject = QLineF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func p1 
+		pTempObj = new QPointF
+		pTempObj.pObject = QLineF_p1(pObject)
+		return pTempObj
+
+	Func p2 
+		pTempObj = new QPointF
+		pTempObj.pObject = QLineF_p2(pObject)
+		return pTempObj
+
+	Func x1 
+		return QLineF_x1(pObject)
+
+	Func x2 
+		return QLineF_x2(pObject)
+
+	Func y1 
+		return QLineF_y1(pObject)
+
+	Func y2 
+		return QLineF_y2(pObject)
+
+	Func angle 
+		return QLineF_angle(pObject)
+
+	Func angleTo P1
+		return QLineF_angleTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func center 
+		pTempObj = new QPointF
+		pTempObj.pObject = QLineF_center(pObject)
+		return pTempObj
+
+	Func dx 
+		return QLineF_dx(pObject)
+
+	Func dy 
+		return QLineF_dy(pObject)
+
+	Func intersects P1,P2
+		return QLineF_intersects(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func isNull 
+		return QLineF_isNull(pObject)
+
+	Func length 
+		return QLineF_length(pObject)
+
+	Func normalVector 
+		pTempObj = new QLineF
+		pTempObj.pObject = QLineF_normalVector(pObject)
+		return pTempObj
+
+	Func pointAt P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QLineF_pointAt(pObject,P1)
+		return pTempObj
+
+	Func setP1 P1
+		return QLineF_setP1(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setP2 P1
+		return QLineF_setP2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setAngle P1
+		return QLineF_setAngle(pObject,P1)
+
+	Func setLength P1
+		return QLineF_setLength(pObject,P1)
+
+	Func setLine P1,P2,P3,P4
+		return QLineF_setLine(pObject,P1,P2,P3,P4)
+
+	Func setPoints P1,P2
+		return QLineF_setPoints(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toLine 
+		return QLineF_toLine(pObject)
+
+	Func translate P1
+		return QLineF_translate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func translate_2 P1,P2
+		return QLineF_translate_2(pObject,P1,P2)
+
+	Func translated P1
+		pTempObj = new QLineF
+		pTempObj.pObject = QLineF_translated(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func translated_2 P1,P2
+		pTempObj = new QLineF
+		pTempObj.pObject = QLineF_translated_2(pObject,P1,P2)
+		return pTempObj
+
+Class QRegExp
+
+	pObject
+
+	Func init 
+		pObject = QRegExp_new()
+		return self
+
+	Func delete
+		pObject = QRegExp_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func cap P1
+		return QRegExp_cap(pObject,P1)
+
+	Func captureCount 
+		return QRegExp_captureCount(pObject)
+
+	Func capturedTexts 
+		pTempObj = new QStringList
+		pTempObj.pObject = QRegExp_capturedTexts(pObject)
+		return pTempObj
+
+	Func caseSensitivity 
+		return QRegExp_caseSensitivity(pObject)
+
+	Func errorString 
+		return QRegExp_errorString(pObject)
+
+	Func exactMatch P1
+		return QRegExp_exactMatch(pObject,P1)
+
+	Func indexIn P1,P2,P3
+		return QRegExp_indexIn(pObject,P1,P2,P3)
+
+	Func isEmpty 
+		return QRegExp_isEmpty(pObject)
+
+	Func isMinimal 
+		return QRegExp_isMinimal(pObject)
+
+	Func isValid 
+		return QRegExp_isValid(pObject)
+
+	Func lastIndexIn P1,P2,P3
+		return QRegExp_lastIndexIn(pObject,P1,P2,P3)
+
+	Func matchedLength 
+		return QRegExp_matchedLength(pObject)
+
+	Func pattern 
+		return QRegExp_pattern(pObject)
+
+	Func patternSyntax 
+		return QRegExp_patternSyntax(pObject)
+
+	Func pos P1
+		return QRegExp_pos(pObject,P1)
+
+	Func setCaseSensitivity P1
+		return QRegExp_setCaseSensitivity(pObject,P1)
+
+	Func setMinimal P1
+		return QRegExp_setMinimal(pObject,P1)
+
+	Func setPattern P1
+		return QRegExp_setPattern(pObject,P1)
+
+	Func setPatternSyntax P1
+		return QRegExp_setPatternSyntax(pObject,P1)
+
+	Func swap P1
+		return QRegExp_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QModelIndex
+
+	pObject
+
+	Func init 
+		pObject = QModelIndex_new()
+		return self
+
+	Func delete
+		pObject = QModelIndex_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func column 
+		return QModelIndex_column(pObject)
+
+	Func data P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QModelIndex_data(pObject,P1)
+		return pTempObj
+
+	Func flags 
+		return QModelIndex_flags(pObject)
+
+	Func internalId 
+		return QModelIndex_internalId(pObject)
+
+	Func internalPointer 
+		return QModelIndex_internalPointer(pObject)
+
+	Func isValid 
+		return QModelIndex_isValid(pObject)
+
+	Func model 
+		return QModelIndex_model(pObject)
+
+	Func parent 
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QModelIndex_parent(pObject)
+		return pTempObj
+
+	Func row 
+		return QModelIndex_row(pObject)
+
+	Func sibling P1,P2
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QModelIndex_sibling(pObject,P1,P2)
+		return pTempObj
+
+	Func siblingAtColumn P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QModelIndex_siblingAtColumn(pObject,P1)
+		return pTempObj
+
+	Func siblingAtRow P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QModelIndex_siblingAtRow(pObject,P1)
+		return pTempObj
+
+Class QVersionNumber
+
+	pObject
+
+	Func init 
+		pObject = QVersionNumber_new()
+		return self
+
+	Func delete
+		pObject = QVersionNumber_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func isNormalized 
+		return QVersionNumber_isNormalized(pObject)
+
+	Func isNull 
+		return QVersionNumber_isNull(pObject)
+
+	Func isPrefixOf P1
+		return QVersionNumber_isPrefixOf(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func majorVersion 
+		return QVersionNumber_majorVersion(pObject)
+
+	Func microVersion 
+		return QVersionNumber_microVersion(pObject)
+
+	Func minorVersion 
+		return QVersionNumber_minorVersion(pObject)
+
+	Func normalized 
+		pTempObj = new QVersionNumber
+		pTempObj.pObject = QVersionNumber_normalized(pObject)
+		return pTempObj
+
+	Func segmentAt P1
+		return QVersionNumber_segmentAt(pObject,P1)
+
+	Func segmentCount 
+		return QVersionNumber_segmentCount(pObject)
+
+	Func segments 
+		return QVersionNumber_segments(pObject)
+
+	Func toString 
+		return QVersionNumber_toString(pObject)
+
+Class QLibraryInfo
+
+	pObject
+
+
+	Func isDebugBuild 
+		return QLibraryInfo_isDebugBuild()
+
+	Func version 
+		pTempObj = new QVersionNumber
+		pTempObj.pObject = QLibraryInfo_version()
+		return pTempObj
+
 Class QDesktopServices
 
 	pObject
@@ -4973,7 +5523,9 @@ Class QPainter
 		return pTempObj
 
 	Func clipBoundingRect 
-		return QPainter_clipBoundingRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QPainter_clipBoundingRect(pObject)
+		return pTempObj
 
 	Func clipPath 
 		pTempObj = new QPainterPath
@@ -6531,7 +7083,9 @@ Class QPainterPath
 		return QPainterPath_arcTo(pObject,P1,P2,P3,P4,P5,P6)
 
 	Func boundingRect 
-		return QPainterPath_boundingRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QPainterPath_boundingRect(pObject)
+		return pTempObj
 
 	Func closeSubpath 
 		return QPainterPath_closeSubpath(pObject)
@@ -6543,7 +7097,9 @@ Class QPainterPath
 		return QPainterPath_contains(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func controlPointRect 
-		return QPainterPath_controlPointRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QPainterPath_controlPointRect(pObject)
+		return pTempObj
 
 	Func cubicTo P1,P2,P3,P4,P5,P6
 		return QPainterPath_cubicTo(pObject,P1,P2,P3,P4,P5,P6)
@@ -8588,7 +9144,9 @@ Class QMatrix4x4
 		return pTempObj
 
 	Func mapRect_2 P1
-		return QMatrix4x4_mapRect_2(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QRectF
+		pTempObj.pObject = QMatrix4x4_mapRect_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func mapVector P1
 		pTempObj = new QVector3D
@@ -11629,6 +12187,160 @@ Class QOpenGLTexture
 	Func hasFeature P1
 		return QOpenGLTexture_hasFeature(pObject,P1)
 
+Class QTransform2
+
+	pObject
+
+	Func init P1,P2,P3,P4,P5,P6
+		pObject = QTransform2_new(P1,P2,P3,P4,P5,P6)
+		return self
+
+	Func delete
+		pObject = QTransform2_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func m11 
+		return QTransform2_m11(pObject)
+
+	Func m12 
+		return QTransform2_m12(pObject)
+
+	Func m13 
+		return QTransform2_m13(pObject)
+
+	Func m21 
+		return QTransform2_m21(pObject)
+
+	Func m22 
+		return QTransform2_m22(pObject)
+
+	Func m23 
+		return QTransform2_m23(pObject)
+
+	Func m31 
+		return QTransform2_m31(pObject)
+
+	Func m32 
+		return QTransform2_m32(pObject)
+
+	Func m33 
+		return QTransform2_m33(pObject)
+
+	Func adjoint 
+		return QTransform2_adjoint(pObject)
+
+	Func determinant 
+		return QTransform2_determinant(pObject)
+
+	Func dx 
+		return QTransform2_dx(pObject)
+
+	Func dy 
+		return QTransform2_dy(pObject)
+
+	Func inverted P1
+		return QTransform2_inverted(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isAffine 
+		return QTransform2_isAffine(pObject)
+
+	Func isIdentity 
+		return QTransform2_isIdentity(pObject)
+
+	Func isInvertible 
+		return QTransform2_isInvertible(pObject)
+
+	Func isRotating 
+		return QTransform2_isRotating(pObject)
+
+	Func isScaling 
+		return QTransform2_isScaling(pObject)
+
+	Func isTranslating 
+		return QTransform2_isTranslating(pObject)
+
+	Func map P1,P2,P3,P4
+		return QTransform2_map(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func map_2 P1
+		pTempObj = new QPoint
+		pTempObj.pObject = QTransform2_map_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_3 P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QTransform2_map_3(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_4 P1
+		return QTransform2_map_4(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func map_5 P1
+		pTempObj = new QLineF
+		pTempObj.pObject = QTransform2_map_5(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_6 P1
+		return QTransform2_map_6(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func map_7 P1
+		return QTransform2_map_7(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func map_8 P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QTransform2_map_8(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_9 P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QTransform2_map_9(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_10 P1,P2,P3,P4
+		return QTransform2_map_10(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func mapRect P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QTransform2_mapRect(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapRect_2 P1
+		pTempObj = new QRect
+		pTempObj.pObject = QTransform2_mapRect_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToPolygon P1
+		return QTransform2_mapToPolygon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func reset 
+		return QTransform2_reset(pObject)
+
+	Func rotate P1,P2
+		return QTransform2_rotate(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func rotateRadians P1,P2
+		return QTransform2_rotateRadians(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func scale P1,P2
+		return QTransform2_scale(pObject,P1,P2)
+
+	Func setMatrix P1,P2,P3,P4,P5,P6,P7,P8,P9
+		return QTransform2_setMatrix(pObject,P1,P2,P3,P4,P5,P6,P7,P8,P9)
+
+	Func shear P1,P2
+		return QTransform2_shear(pObject,P1,P2)
+
+	Func translate P1,P2
+		return QTransform2_translate(pObject,P1,P2)
+
+	Func transposed 
+		return QTransform2_transposed(pObject)
+
+	Func type 
+		return QTransform2_type(pObject)
+
 Class QApp from QGuiApplication
 
 	pObject
@@ -11843,10 +12555,14 @@ Class QWidget from QObject
 		return QWidget_grabShortcut(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func graphicsEffect 
-		return QWidget_graphicsEffect(pObject)
+		pTempObj = new QGraphicsEffect
+		pTempObj.pObject = QWidget_graphicsEffect(pObject)
+		return pTempObj
 
 	Func graphicsProxyWidget 
-		return QWidget_graphicsProxyWidget(pObject)
+		pTempObj = new QGraphicsProxyWidget
+		pTempObj.pObject = QWidget_graphicsProxyWidget(pObject)
+		return pTempObj
 
 	Func hasFocus 
 		return QWidget_hasFocus(pObject)
@@ -13298,10 +14014,14 @@ Class QTreeView from QAbstractItemView
 		return QTreeView_indentation(pObject)
 
 	Func indexAbove P1
-		return QTreeView_indexAbove(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QTreeView_indexAbove(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func indexBelow P1
-		return QTreeView_indexBelow(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QTreeView_indexBelow(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func isAnimated 
 		return QTreeView_isAnimated(pObject)
@@ -13394,7 +14114,9 @@ Class QTreeView from QAbstractItemView
 		return QTreeView_dataChanged(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func indexAt P1
-		return QTreeView_indexAt(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QTreeView_indexAt(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func keyboardSearch P1
 		return QTreeView_keyboardSearch(pObject,P1)
@@ -13531,7 +14253,9 @@ Class QFileSystemModel
 		return QFileSystemModel_iconProvider(pObject)
 
 	Func index P1,P2
-		return QFileSystemModel_index(pObject,P1,P2)
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QFileSystemModel_index(pObject,P1,P2)
+		return pTempObj
 
 	Func isDir P1
 		return QFileSystemModel_isDir(pObject,GetObjectPointerFromRingObject(P1))
@@ -13545,7 +14269,9 @@ Class QFileSystemModel
 		return pTempObj
 
 	Func mkdir P1,P2
-		return QFileSystemModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QFileSystemModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
 
 	Func myComputer P1
 		pTempObj = new QVariant
@@ -13599,7 +14325,9 @@ Class QFileSystemModel
 		return QFileSystemModel_setResolveSymlinks(pObject,P1)
 
 	Func setRootPath P1
-		return QFileSystemModel_setRootPath(pObject,P1)
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QFileSystemModel_setRootPath(pObject,P1)
+		return pTempObj
 
 	Func size P1
 		return QFileSystemModel_size(pObject,GetObjectPointerFromRingObject(P1))
@@ -13646,7 +14374,9 @@ Class QFileSystemModel
 		return pTempObj
 
 	Func parent P1
-		return QFileSystemModel_parent(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QFileSystemModel_parent(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func rowCount P1
 		return QFileSystemModel_rowCount(pObject,GetObjectPointerFromRingObject(P1))
@@ -14199,7 +14929,9 @@ Class QComboBox from QWidget
 		return QComboBox_removeItem(pObject,P1)
 
 	Func rootModelIndex 
-		return QComboBox_rootModelIndex(pObject)
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QComboBox_rootModelIndex(pObject)
+		return pTempObj
 
 	Func setCompleter P1
 		return QComboBox_setCompleter(pObject,GetObjectPointerFromRingObject(P1))
@@ -15367,7 +16099,9 @@ Class QAbstractItemView from QAbstractScrollArea
 		return QAbstractItemView_closePersistentEditor(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func currentIndex 
-		return QAbstractItemView_currentIndex(pObject)
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QAbstractItemView_currentIndex(pObject)
+		return pTempObj
 
 	Func defaultDropAction 
 		return QAbstractItemView_defaultDropAction(pObject)
@@ -15396,7 +16130,9 @@ Class QAbstractItemView from QAbstractScrollArea
 		return pTempObj
 
 	Func indexAt P1
-		return QAbstractItemView_indexAt(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QAbstractItemView_indexAt(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func indexWidget P1
 		pTempObj = new QWidget
@@ -15422,7 +16158,9 @@ Class QAbstractItemView from QAbstractScrollArea
 		return QAbstractItemView_openPersistentEditor(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func rootIndex 
-		return QAbstractItemView_rootIndex(pObject)
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QAbstractItemView_rootIndex(pObject)
+		return pTempObj
 
 	Func scrollTo P1,P2
 		return QAbstractItemView_scrollTo(pObject,GetObjectPointerFromRingObject(P1),P2)
@@ -16421,6 +17159,24 @@ Class QDateTimeEdit from QAbstractSpinBox
 
 	Func setTime P1
 		return QDateTimeEdit_setTime(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setdateChangedEvent P1
+		return QDateTimeEdit_setdateChangedEvent(pObject,P1)
+
+	Func setdateTimeChangedEvent P1
+		return QDateTimeEdit_setdateTimeChangedEvent(pObject,P1)
+
+	Func settimeChangedEvent P1
+		return QDateTimeEdit_settimeChangedEvent(pObject,P1)
+
+	Func getdateChangedEvent 
+		return QDateTimeEdit_getdateChangedEvent(pObject)
+
+	Func getdateTimeChangedEvent 
+		return QDateTimeEdit_getdateTimeChangedEvent(pObject)
+
+	Func gettimeChangedEvent 
+		return QDateTimeEdit_gettimeChangedEvent(pObject)
 
 Class QAbstractSpinBox from QWidget
 
@@ -18285,38 +19041,6 @@ Class QAllEvents from QWidget
 		pTempObj.pObject = QAllEvents_getChildEventObject(pObject)
 		return pTempObj
 
-Class QDesktopWidget from QWidget
-
-	pObject
-
-	Func init 
-		pObject = QDesktopWidget_new()
-		return self
-
-	Func delete
-		pObject = QDesktopWidget_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func availableGeometry P1
-		pTempObj = new QRect
-		pTempObj.pObject = QDesktopWidget_availableGeometry(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func screen 
-		pTempObj = new QScreen
-		pTempObj.pObject = QDesktopWidget_screen(pObject)
-		return pTempObj
-
-	Func screenGeometry P1
-		pTempObj = new QRect
-		pTempObj.pObject = QDesktopWidget_screenGeometry(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func screenNumber P1
-		return QDesktopWidget_screenNumber(pObject,GetObjectPointerFromRingObject(P1))
-
 Class QListWidgetItem
 
 	pObject
@@ -19540,7 +20264,9 @@ Class QCompleter from QObject
 		return QCompleter_currentCompletion(pObject)
 
 	Func currentIndex 
-		return QCompleter_currentIndex(pObject)
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QCompleter_currentIndex(pObject)
+		return pTempObj
 
 	Func currentRow 
 		return QCompleter_currentRow(pObject)
@@ -20468,546 +21194,6 @@ Class QTabBar from QWidget
 	Func gettabMovedEvent 
 		return QTabBar_gettabMovedEvent(pObject)
 
-Class QGraphicsView from QAbstractScrollArea
-
-	pObject
-
-	Func init P1
-		pObject = QGraphicsView_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QGraphicsView_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func alignment 
-		return QGraphicsView_alignment(pObject)
-
-	Func backgroundBrush 
-		pTempObj = new QBrush
-		pTempObj.pObject = QGraphicsView_backgroundBrush(pObject)
-		return pTempObj
-
-	Func cacheMode 
-		return QGraphicsView_cacheMode(pObject)
-
-	Func centerOn P1
-		return QGraphicsView_centerOn(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func centerOn_2 P1,P2
-		return QGraphicsView_centerOn_2(pObject,P1,P2)
-
-	Func centerOn_3 P1
-		return QGraphicsView_centerOn_3(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func dragMode 
-		return QGraphicsView_dragMode(pObject)
-
-	Func ensureVisible P1,P2,P3
-		return QGraphicsView_ensureVisible(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
-
-	Func ensureVisible_2 P1,P2,P3,P4,P5,P6
-		return QGraphicsView_ensureVisible_2(pObject,P1,P2,P3,P4,P5,P6)
-
-	Func ensureVisible_3 P1,P2,P3
-		return QGraphicsView_ensureVisible_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
-
-	Func fitInView P1,P2
-		return QGraphicsView_fitInView(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func fitInView_2 P1,P2,P3,P4,P5
-		return QGraphicsView_fitInView_2(pObject,P1,P2,P3,P4,P5)
-
-	Func fitInView_3 P1,P2
-		return QGraphicsView_fitInView_3(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func foregroundBrush 
-		pTempObj = new QBrush
-		pTempObj.pObject = QGraphicsView_foregroundBrush(pObject)
-		return pTempObj
-
-	Func isInteractive 
-		return QGraphicsView_isInteractive(pObject)
-
-	Func isTransformed 
-		return QGraphicsView_isTransformed(pObject)
-
-	Func itemAt P1
-		return QGraphicsView_itemAt(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func itemAt_2 P1,P2
-		return QGraphicsView_itemAt_2(pObject,P1,P2)
-
-	Func items 
-		return QGraphicsView_items(pObject)
-
-	Func items_2 P1
-		return QGraphicsView_items_2(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func items_3 P1,P2
-		return QGraphicsView_items_3(pObject,P1,P2)
-
-	Func items_4 P1,P2
-		return QGraphicsView_items_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func items_5 P1,P2,P3,P4,P5
-		return QGraphicsView_items_5(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
-
-	Func items_6 P1,P2
-		return QGraphicsView_items_6(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func items_7 P1,P2
-		return QGraphicsView_items_7(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func mapFromScene P1
-		pTempObj = new QPoint
-		pTempObj.pObject = QGraphicsView_mapFromScene(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func mapFromScene_2 P1
-		return QGraphicsView_mapFromScene_2(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func mapFromScene_3 P1
-		return QGraphicsView_mapFromScene_3(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func mapFromScene_4 P1
-		pTempObj = new QPainterPath
-		pTempObj.pObject = QGraphicsView_mapFromScene_4(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func mapFromScene_5 P1,P2
-		pTempObj = new QPoint
-		pTempObj.pObject = QGraphicsView_mapFromScene_5(pObject,P1,P2)
-		return pTempObj
-
-	Func mapFromScene_6 P1,P2,P3,P4
-		return QGraphicsView_mapFromScene_6(pObject,P1,P2,P3,P4)
-
-	Func mapToScene P1
-		pTempObj = new QPointF
-		pTempObj.pObject = QGraphicsView_mapToScene(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func mapToScene_2 P1
-		return QGraphicsView_mapToScene_2(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func mapToScene_3 P1
-		return QGraphicsView_mapToScene_3(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func mapToScene_4 P1
-		pTempObj = new QPainterPath
-		pTempObj.pObject = QGraphicsView_mapToScene_4(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func mapToScene_5 P1,P2
-		pTempObj = new QPointF
-		pTempObj.pObject = QGraphicsView_mapToScene_5(pObject,P1,P2)
-		return pTempObj
-
-	Func mapToScene_6 P1,P2,P3,P4
-		return QGraphicsView_mapToScene_6(pObject,P1,P2,P3,P4)
-
-	Func optimizationFlags 
-		return QGraphicsView_optimizationFlags(pObject)
-
-	Func render P1,P2,P3,P4
-		return QGraphicsView_render(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),P4)
-
-	Func renderHints 
-		return QGraphicsView_renderHints(pObject)
-
-	Func resetCachedContent 
-		return QGraphicsView_resetCachedContent(pObject)
-
-	Func resetTransform 
-		return QGraphicsView_resetTransform(pObject)
-
-	Func resizeAnchor 
-		return QGraphicsView_resizeAnchor(pObject)
-
-	Func rotate P1
-		return QGraphicsView_rotate(pObject,P1)
-
-	Func rubberBandRect 
-		pTempObj = new QRect
-		pTempObj.pObject = QGraphicsView_rubberBandRect(pObject)
-		return pTempObj
-
-	Func rubberBandSelectionMode 
-		return QGraphicsView_rubberBandSelectionMode(pObject)
-
-	Func scale P1,P2
-		return QGraphicsView_scale(pObject,P1,P2)
-
-	Func scene 
-		pTempObj = new QGraphicsScene
-		pTempObj.pObject = QGraphicsView_scene(pObject)
-		return pTempObj
-
-	Func sceneRect 
-		return QGraphicsView_sceneRect(pObject)
-
-	Func setAlignment P1
-		return QGraphicsView_setAlignment(pObject,P1)
-
-	Func setBackgroundBrush P1
-		return QGraphicsView_setBackgroundBrush(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setCacheMode P1
-		return QGraphicsView_setCacheMode(pObject,P1)
-
-	Func setDragMode P1
-		return QGraphicsView_setDragMode(pObject,P1)
-
-	Func setForegroundBrush P1
-		return QGraphicsView_setForegroundBrush(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setInteractive P1
-		return QGraphicsView_setInteractive(pObject,P1)
-
-	Func setOptimizationFlag P1,P2
-		return QGraphicsView_setOptimizationFlag(pObject,P1,P2)
-
-	Func setOptimizationFlags P1
-		return QGraphicsView_setOptimizationFlags(pObject,P1)
-
-	Func setRenderHint P1,P2
-		return QGraphicsView_setRenderHint(pObject,P1,P2)
-
-	Func setRenderHints P1
-		return QGraphicsView_setRenderHints(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setResizeAnchor P1
-		return QGraphicsView_setResizeAnchor(pObject,P1)
-
-	Func setRubberBandSelectionMode P1
-		return QGraphicsView_setRubberBandSelectionMode(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setScene P1
-		return QGraphicsView_setScene(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setSceneRect P1
-		return QGraphicsView_setSceneRect(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setSceneRect_2 P1,P2,P3,P4
-		return QGraphicsView_setSceneRect_2(pObject,P1,P2,P3,P4)
-
-	Func setTransform P1,P2
-		return QGraphicsView_setTransform(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func setTransformationAnchor P1
-		return QGraphicsView_setTransformationAnchor(pObject,P1)
-
-	Func setViewportUpdateMode P1
-		return QGraphicsView_setViewportUpdateMode(pObject,P1)
-
-	Func shear P1,P2
-		return QGraphicsView_shear(pObject,P1,P2)
-
-	Func transform 
-		return QGraphicsView_transform(pObject)
-
-	Func transformationAnchor 
-		return QGraphicsView_transformationAnchor(pObject)
-
-	Func translate P1,P2
-		return QGraphicsView_translate(pObject,P1,P2)
-
-	Func viewportTransform 
-		return QGraphicsView_viewportTransform(pObject)
-
-	Func viewportUpdateMode 
-		return QGraphicsView_viewportUpdateMode(pObject)
-
-	Func invalidateScene P1,P2
-		return QGraphicsView_invalidateScene(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func updateScene P1
-		return QGraphicsView_updateScene(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func updateSceneRect P1
-		return QGraphicsView_updateSceneRect(pObject,GetObjectPointerFromRingObject(P1))
-
-Class QGraphicsScene from QObject
-
-	pObject
-
-	Func init P1
-		pObject = QGraphicsScene_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QGraphicsScene_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func activePanel 
-		return QGraphicsScene_activePanel(pObject)
-
-	Func activeWindow 
-		return QGraphicsScene_activeWindow(pObject)
-
-	Func addEllipse P1,P2,P3
-		return QGraphicsScene_addEllipse(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-
-	Func addEllipse_2 P1,P2,P3,P4,P5,P6
-		return QGraphicsScene_addEllipse_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
-
-	Func addItem P1
-		return QGraphicsScene_addItem(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func addLine P1,P2
-		return QGraphicsScene_addLine(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func addLine_2 P1,P2,P3,P4,P5
-		return QGraphicsScene_addLine_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
-
-	Func addPath P1,P2,P3
-		return QGraphicsScene_addPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-
-	Func addPixmap P1
-		return QGraphicsScene_addPixmap(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func addPolygon P1,P2,P3
-		return QGraphicsScene_addPolygon(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-
-	Func addRect P1,P2,P3
-		return QGraphicsScene_addRect(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-
-	Func addRect_2 P1,P2,P3,P4,P5,P6
-		return QGraphicsScene_addRect_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
-
-	Func addSimpleText P1,P2
-		return QGraphicsScene_addSimpleText(pObject,P1,GetObjectPointerFromRingObject(P2))
-
-	Func addText P1,P2
-		return QGraphicsScene_addText(pObject,P1,GetObjectPointerFromRingObject(P2))
-
-	Func addWidget P1,P2
-		return QGraphicsScene_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func backgroundBrush 
-		pTempObj = new QBrush
-		pTempObj.pObject = QGraphicsScene_backgroundBrush(pObject)
-		return pTempObj
-
-	Func bspTreeDepth 
-		return QGraphicsScene_bspTreeDepth(pObject)
-
-	Func clearFocus 
-		return QGraphicsScene_clearFocus(pObject)
-
-	Func collidingItems P1,P2
-		return QGraphicsScene_collidingItems(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func createItemGroup P1
-		return QGraphicsScene_createItemGroup(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func destroyItemGroup P1
-		return QGraphicsScene_destroyItemGroup(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func focusItem 
-		return QGraphicsScene_focusItem(pObject)
-
-	Func font 
-		pTempObj = new QFont
-		pTempObj.pObject = QGraphicsScene_font(pObject)
-		return pTempObj
-
-	Func foregroundBrush 
-		pTempObj = new QBrush
-		pTempObj.pObject = QGraphicsScene_foregroundBrush(pObject)
-		return pTempObj
-
-	Func hasFocus 
-		return QGraphicsScene_hasFocus(pObject)
-
-	Func height 
-		return QGraphicsScene_height(pObject)
-
-	Func inputMethodQuery P1
-		pTempObj = new QVariant
-		pTempObj.pObject = QGraphicsScene_inputMethodQuery(pObject,P1)
-		return pTempObj
-
-	Func invalidate P1,P2,P3,P4,P5
-		return QGraphicsScene_invalidate(pObject,P1,P2,P3,P4,P5)
-
-	Func isActive 
-		return QGraphicsScene_isActive(pObject)
-
-	Func itemAt P1,P2
-		return QGraphicsScene_itemAt(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func itemAt_2 P1,P2,P3
-		return QGraphicsScene_itemAt_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
-
-	Func itemIndexMethod 
-		return QGraphicsScene_itemIndexMethod(pObject)
-
-	Func items P1
-		return QGraphicsScene_items(pObject,P1)
-
-	Func items_2 P1,P2,P3,P4
-		return QGraphicsScene_items_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
-
-	Func items_3 P1,P2,P3,P4
-		return QGraphicsScene_items_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
-
-	Func items_4 P1,P2,P3,P4
-		return QGraphicsScene_items_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
-
-	Func items_5 P1,P2,P3,P4
-		return QGraphicsScene_items_5(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
-
-	Func items_6 P1,P2,P3,P4,P5,P6,P7
-		return QGraphicsScene_items_6(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),P6,GetObjectPointerFromRingObject(P7))
-
-	Func itemsBoundingRect 
-		return QGraphicsScene_itemsBoundingRect(pObject)
-
-	Func minimumRenderSize 
-		return QGraphicsScene_minimumRenderSize(pObject)
-
-	Func mouseGrabberItem 
-		return QGraphicsScene_mouseGrabberItem(pObject)
-
-	Func palette 
-		return QGraphicsScene_palette(pObject)
-
-	Func removeItem P1
-		return QGraphicsScene_removeItem(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func render P1,P2,P3,P4
-		return QGraphicsScene_render(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),P4)
-
-	Func sceneRect 
-		return QGraphicsScene_sceneRect(pObject)
-
-	Func selectedItems 
-		return QGraphicsScene_selectedItems(pObject)
-
-	Func selectionArea 
-		pTempObj = new QPainterPath
-		pTempObj.pObject = QGraphicsScene_selectionArea(pObject)
-		return pTempObj
-
-	Func sendEvent P1,P2
-		return QGraphicsScene_sendEvent(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func setActivePanel P1
-		return QGraphicsScene_setActivePanel(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setActiveWindow P1
-		return QGraphicsScene_setActiveWindow(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setBackgroundBrush P1
-		return QGraphicsScene_setBackgroundBrush(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setBspTreeDepth P1
-		return QGraphicsScene_setBspTreeDepth(pObject,P1)
-
-	Func setFocus P1
-		return QGraphicsScene_setFocus(pObject,P1)
-
-	Func setFocusItem P1,P2
-		return QGraphicsScene_setFocusItem(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func setFont P1
-		return QGraphicsScene_setFont(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setForegroundBrush P1
-		return QGraphicsScene_setForegroundBrush(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setItemIndexMethod P1
-		return QGraphicsScene_setItemIndexMethod(pObject,P1)
-
-	Func setMinimumRenderSize P1
-		return QGraphicsScene_setMinimumRenderSize(pObject,P1)
-
-	Func setPalette P1
-		return QGraphicsScene_setPalette(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setSceneRect P1
-		return QGraphicsScene_setSceneRect(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setSceneRect_2 P1,P2,P3,P4
-		return QGraphicsScene_setSceneRect_2(pObject,P1,P2,P3,P4)
-
-	Func setSelectionArea P1,P2
-		return QGraphicsScene_setSelectionArea(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func setSelectionArea_2 P1,P2,P3
-		return QGraphicsScene_setSelectionArea_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-
-	Func setSelectionArea_3 P1,P2,P3,P4
-		return QGraphicsScene_setSelectionArea_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
-	Func setStickyFocus P1
-		return QGraphicsScene_setStickyFocus(pObject,P1)
-
-	Func setStyle P1
-		return QGraphicsScene_setStyle(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func stickyFocus 
-		return QGraphicsScene_stickyFocus(pObject)
-
-	Func style 
-		pTempObj = new QStyle
-		pTempObj.pObject = QGraphicsScene_style(pObject)
-		return pTempObj
-
-	Func update P1,P2,P3,P4
-		return QGraphicsScene_update(pObject,P1,P2,P3,P4)
-
-	Func views 
-		return QGraphicsScene_views(pObject)
-
-	Func width 
-		return QGraphicsScene_width(pObject)
-
-	Func advance 
-		return QGraphicsScene_advance(pObject)
-
-	Func clear 
-		return QGraphicsScene_clear(pObject)
-
-	Func clearSelection 
-		return QGraphicsScene_clearSelection(pObject)
-
-	Func invalidate_2 P1,P2
-		return QGraphicsScene_invalidate_2(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func update_2 P1
-		return QGraphicsScene_update_2(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setchangedEvent P1
-		return QGraphicsScene_setchangedEvent(pObject,P1)
-
-	Func setfocusItemChangedEvent P1
-		return QGraphicsScene_setfocusItemChangedEvent(pObject,P1)
-
-	Func setsceneRectChangedEvent P1
-		return QGraphicsScene_setsceneRectChangedEvent(pObject,P1)
-
-	Func setselectionChangedEvent P1
-		return QGraphicsScene_setselectionChangedEvent(pObject,P1)
-
-	Func getchangedEvent 
-		return QGraphicsScene_getchangedEvent(pObject)
-
-	Func getfocusItemChangedEvent 
-		return QGraphicsScene_getfocusItemChangedEvent(pObject)
-
-	Func getsceneRectChangedEvent 
-		return QGraphicsScene_getsceneRectChangedEvent(pObject)
-
-	Func getselectionChangedEvent 
-		return QGraphicsScene_getselectionChangedEvent(pObject)
-
 Class QStyle from QObject
 
 	pObject
@@ -21196,6 +21382,2741 @@ Class QOpenGLWidget from QWidget
 
 	Func updateBehavior 
 		return QOpenGLWidget_updateBehavior(pObject)
+
+Class QGraphicsView from QAbstractScrollArea
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsView_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsView_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func alignment 
+		return QGraphicsView_alignment(pObject)
+
+	Func backgroundBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QGraphicsView_backgroundBrush(pObject)
+		return pTempObj
+
+	Func cacheMode 
+		return QGraphicsView_cacheMode(pObject)
+
+	Func centerOn P1
+		return QGraphicsView_centerOn(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func centerOn_2 P1,P2
+		return QGraphicsView_centerOn_2(pObject,P1,P2)
+
+	Func centerOn_3 P1
+		return QGraphicsView_centerOn_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func dragMode 
+		return QGraphicsView_dragMode(pObject)
+
+	Func ensureVisible P1,P2,P3
+		return QGraphicsView_ensureVisible(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func ensureVisible_2 P1,P2,P3,P4,P5,P6
+		return QGraphicsView_ensureVisible_2(pObject,P1,P2,P3,P4,P5,P6)
+
+	Func ensureVisible_3 P1,P2,P3
+		return QGraphicsView_ensureVisible_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func fitInView P1,P2
+		return QGraphicsView_fitInView(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func fitInView_2 P1,P2,P3,P4,P5
+		return QGraphicsView_fitInView_2(pObject,P1,P2,P3,P4,P5)
+
+	Func fitInView_3 P1,P2
+		return QGraphicsView_fitInView_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func foregroundBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QGraphicsView_foregroundBrush(pObject)
+		return pTempObj
+
+	Func isInteractive 
+		return QGraphicsView_isInteractive(pObject)
+
+	Func isTransformed 
+		return QGraphicsView_isTransformed(pObject)
+
+	Func itemAt P1
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsView_itemAt(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func itemAt_2 P1,P2
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsView_itemAt_2(pObject,P1,P2)
+		return pTempObj
+
+	Func items 
+		return QGraphicsView_items(pObject)
+
+	Func items_2 P1
+		return QGraphicsView_items_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func items_3 P1,P2
+		return QGraphicsView_items_3(pObject,P1,P2)
+
+	Func items_4 P1,P2
+		return QGraphicsView_items_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func items_5 P1,P2,P3,P4,P5
+		return QGraphicsView_items_5(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
+
+	Func items_6 P1,P2
+		return QGraphicsView_items_6(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func items_7 P1,P2
+		return QGraphicsView_items_7(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func mapFromScene P1
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsView_mapFromScene(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapFromScene_2 P1
+		return QGraphicsView_mapFromScene_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapFromScene_3 P1
+		return QGraphicsView_mapFromScene_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapFromScene_4 P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsView_mapFromScene_4(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapFromScene_5 P1,P2
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsView_mapFromScene_5(pObject,P1,P2)
+		return pTempObj
+
+	Func mapFromScene_6 P1,P2,P3,P4
+		return QGraphicsView_mapFromScene_6(pObject,P1,P2,P3,P4)
+
+	Func mapToScene P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsView_mapToScene(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToScene_2 P1
+		return QGraphicsView_mapToScene_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapToScene_3 P1
+		return QGraphicsView_mapToScene_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapToScene_4 P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsView_mapToScene_4(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToScene_5 P1,P2
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsView_mapToScene_5(pObject,P1,P2)
+		return pTempObj
+
+	Func mapToScene_6 P1,P2,P3,P4
+		return QGraphicsView_mapToScene_6(pObject,P1,P2,P3,P4)
+
+	Func optimizationFlags 
+		return QGraphicsView_optimizationFlags(pObject)
+
+	Func render P1,P2,P3,P4
+		return QGraphicsView_render(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),P4)
+
+	Func renderHints 
+		return QGraphicsView_renderHints(pObject)
+
+	Func resetCachedContent 
+		return QGraphicsView_resetCachedContent(pObject)
+
+	Func resetTransform 
+		return QGraphicsView_resetTransform(pObject)
+
+	Func resizeAnchor 
+		return QGraphicsView_resizeAnchor(pObject)
+
+	Func rotate P1
+		return QGraphicsView_rotate(pObject,P1)
+
+	Func rubberBandRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QGraphicsView_rubberBandRect(pObject)
+		return pTempObj
+
+	Func rubberBandSelectionMode 
+		return QGraphicsView_rubberBandSelectionMode(pObject)
+
+	Func scale P1,P2
+		return QGraphicsView_scale(pObject,P1,P2)
+
+	Func scene 
+		pTempObj = new QGraphicsScene
+		pTempObj.pObject = QGraphicsView_scene(pObject)
+		return pTempObj
+
+	Func sceneRect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsView_sceneRect(pObject)
+		return pTempObj
+
+	Func setAlignment P1
+		return QGraphicsView_setAlignment(pObject,P1)
+
+	Func setBackgroundBrush P1
+		return QGraphicsView_setBackgroundBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCacheMode P1
+		return QGraphicsView_setCacheMode(pObject,P1)
+
+	Func setDragMode P1
+		return QGraphicsView_setDragMode(pObject,P1)
+
+	Func setForegroundBrush P1
+		return QGraphicsView_setForegroundBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setInteractive P1
+		return QGraphicsView_setInteractive(pObject,P1)
+
+	Func setOptimizationFlag P1,P2
+		return QGraphicsView_setOptimizationFlag(pObject,P1,P2)
+
+	Func setOptimizationFlags P1
+		return QGraphicsView_setOptimizationFlags(pObject,P1)
+
+	Func setRenderHint P1,P2
+		return QGraphicsView_setRenderHint(pObject,P1,P2)
+
+	Func setRenderHints P1
+		return QGraphicsView_setRenderHints(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setResizeAnchor P1
+		return QGraphicsView_setResizeAnchor(pObject,P1)
+
+	Func setRubberBandSelectionMode P1
+		return QGraphicsView_setRubberBandSelectionMode(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setScene P1
+		return QGraphicsView_setScene(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSceneRect P1
+		return QGraphicsView_setSceneRect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSceneRect_2 P1,P2,P3,P4
+		return QGraphicsView_setSceneRect_2(pObject,P1,P2,P3,P4)
+
+	Func setTransform P1,P2
+		return QGraphicsView_setTransform(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setTransformationAnchor P1
+		return QGraphicsView_setTransformationAnchor(pObject,P1)
+
+	Func setViewportUpdateMode P1
+		return QGraphicsView_setViewportUpdateMode(pObject,P1)
+
+	Func shear P1,P2
+		return QGraphicsView_shear(pObject,P1,P2)
+
+	Func transform 
+		return QGraphicsView_transform(pObject)
+
+	Func transformationAnchor 
+		return QGraphicsView_transformationAnchor(pObject)
+
+	Func translate P1,P2
+		return QGraphicsView_translate(pObject,P1,P2)
+
+	Func viewportTransform 
+		return QGraphicsView_viewportTransform(pObject)
+
+	Func viewportUpdateMode 
+		return QGraphicsView_viewportUpdateMode(pObject)
+
+	Func invalidateScene P1,P2
+		return QGraphicsView_invalidateScene(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func updateScene P1
+		return QGraphicsView_updateScene(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func updateSceneRect P1
+		return QGraphicsView_updateSceneRect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setrubberBandChangedEvent P1
+		return QGraphicsView_setrubberBandChangedEvent(pObject,P1)
+
+	Func getrubberBandChangedEvent 
+		return QGraphicsView_getrubberBandChangedEvent(pObject)
+
+Class QGraphicsScene from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsScene_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsScene_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func activePanel 
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsScene_activePanel(pObject)
+		return pTempObj
+
+	Func activeWindow 
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsScene_activeWindow(pObject)
+		return pTempObj
+
+	Func addEllipse P1,P2,P3
+		pTempObj = new QGraphicsEllipseItem
+		pTempObj.pObject = QGraphicsScene_addEllipse(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func addEllipse_2 P1,P2,P3,P4,P5,P6
+		pTempObj = new QGraphicsEllipseItem
+		pTempObj.pObject = QGraphicsScene_addEllipse_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+		return pTempObj
+
+	Func addItem P1
+		return QGraphicsScene_addItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addLine P1,P2
+		pTempObj = new QGraphicsLineItem
+		pTempObj.pObject = QGraphicsScene_addLine(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func addLine_2 P1,P2,P3,P4,P5
+		pTempObj = new QGraphicsLineItem
+		pTempObj.pObject = QGraphicsScene_addLine_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
+		return pTempObj
+
+	Func addPath P1,P2,P3
+		pTempObj = new QGraphicsPathItem
+		pTempObj.pObject = QGraphicsScene_addPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func addPixmap P1
+		pTempObj = new QGraphicsPixmapItem
+		pTempObj.pObject = QGraphicsScene_addPixmap(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func addPolygon P1,P2,P3
+		pTempObj = new QGraphicsPolygonItem
+		pTempObj.pObject = QGraphicsScene_addPolygon(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func addRect P1,P2,P3
+		pTempObj = new QGraphicsRectItem
+		pTempObj.pObject = QGraphicsScene_addRect(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func addRect_2 P1,P2,P3,P4,P5,P6
+		pTempObj = new QGraphicsRectItem
+		pTempObj.pObject = QGraphicsScene_addRect_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+		return pTempObj
+
+	Func addSimpleText P1,P2
+		pTempObj = new QGraphicsSimpleTextItem
+		pTempObj.pObject = QGraphicsScene_addSimpleText(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func addText P1,P2
+		pTempObj = new QGraphicsTextItem
+		pTempObj.pObject = QGraphicsScene_addText(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func addWidget P1,P2
+		pTempObj = new QGraphicsProxyWidget
+		pTempObj.pObject = QGraphicsScene_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func backgroundBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QGraphicsScene_backgroundBrush(pObject)
+		return pTempObj
+
+	Func bspTreeDepth 
+		return QGraphicsScene_bspTreeDepth(pObject)
+
+	Func clearFocus 
+		return QGraphicsScene_clearFocus(pObject)
+
+	Func collidingItems P1,P2
+		return QGraphicsScene_collidingItems(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func createItemGroup P1
+		pTempObj = new QGraphicsItemGroup
+		pTempObj.pObject = QGraphicsScene_createItemGroup(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func destroyItemGroup P1
+		return QGraphicsScene_destroyItemGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func focusItem 
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsScene_focusItem(pObject)
+		return pTempObj
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QGraphicsScene_font(pObject)
+		return pTempObj
+
+	Func foregroundBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QGraphicsScene_foregroundBrush(pObject)
+		return pTempObj
+
+	Func hasFocus 
+		return QGraphicsScene_hasFocus(pObject)
+
+	Func height 
+		return QGraphicsScene_height(pObject)
+
+	Func inputMethodQuery P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QGraphicsScene_inputMethodQuery(pObject,P1)
+		return pTempObj
+
+	Func invalidate P1,P2,P3,P4,P5
+		return QGraphicsScene_invalidate(pObject,P1,P2,P3,P4,P5)
+
+	Func isActive 
+		return QGraphicsScene_isActive(pObject)
+
+	Func itemAt P1,P2
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsScene_itemAt(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func itemAt_2 P1,P2,P3
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsScene_itemAt_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func itemIndexMethod 
+		return QGraphicsScene_itemIndexMethod(pObject)
+
+	Func items P1
+		return QGraphicsScene_items(pObject,P1)
+
+	Func items_2 P1,P2,P3,P4
+		return QGraphicsScene_items_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func items_3 P1,P2,P3,P4
+		return QGraphicsScene_items_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func items_4 P1,P2,P3,P4
+		return QGraphicsScene_items_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func items_5 P1,P2,P3,P4
+		return QGraphicsScene_items_5(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func items_6 P1,P2,P3,P4,P5,P6,P7
+		return QGraphicsScene_items_6(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),P6,GetObjectPointerFromRingObject(P7))
+
+	Func itemsBoundingRect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsScene_itemsBoundingRect(pObject)
+		return pTempObj
+
+	Func minimumRenderSize 
+		return QGraphicsScene_minimumRenderSize(pObject)
+
+	Func mouseGrabberItem 
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsScene_mouseGrabberItem(pObject)
+		return pTempObj
+
+	Func palette 
+		return QGraphicsScene_palette(pObject)
+
+	Func removeItem P1
+		return QGraphicsScene_removeItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func render P1,P2,P3,P4
+		return QGraphicsScene_render(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),P4)
+
+	Func sceneRect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsScene_sceneRect(pObject)
+		return pTempObj
+
+	Func selectedItems 
+		return QGraphicsScene_selectedItems(pObject)
+
+	Func selectionArea 
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsScene_selectionArea(pObject)
+		return pTempObj
+
+	Func sendEvent P1,P2
+		return QGraphicsScene_sendEvent(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setActivePanel P1
+		return QGraphicsScene_setActivePanel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setActiveWindow P1
+		return QGraphicsScene_setActiveWindow(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBackgroundBrush P1
+		return QGraphicsScene_setBackgroundBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBspTreeDepth P1
+		return QGraphicsScene_setBspTreeDepth(pObject,P1)
+
+	Func setFocus P1
+		return QGraphicsScene_setFocus(pObject,P1)
+
+	Func setFocusItem P1,P2
+		return QGraphicsScene_setFocusItem(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setFont P1
+		return QGraphicsScene_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setForegroundBrush P1
+		return QGraphicsScene_setForegroundBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setItemIndexMethod P1
+		return QGraphicsScene_setItemIndexMethod(pObject,P1)
+
+	Func setMinimumRenderSize P1
+		return QGraphicsScene_setMinimumRenderSize(pObject,P1)
+
+	Func setPalette P1
+		return QGraphicsScene_setPalette(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSceneRect P1
+		return QGraphicsScene_setSceneRect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSceneRect_2 P1,P2,P3,P4
+		return QGraphicsScene_setSceneRect_2(pObject,P1,P2,P3,P4)
+
+	Func setSelectionArea P1,P2
+		return QGraphicsScene_setSelectionArea(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setSelectionArea_2 P1,P2,P3
+		return QGraphicsScene_setSelectionArea_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func setSelectionArea_3 P1,P2,P3,P4
+		return QGraphicsScene_setSelectionArea_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func setStickyFocus P1
+		return QGraphicsScene_setStickyFocus(pObject,P1)
+
+	Func setStyle P1
+		return QGraphicsScene_setStyle(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func stickyFocus 
+		return QGraphicsScene_stickyFocus(pObject)
+
+	Func style 
+		return QGraphicsScene_style(pObject)
+
+	Func update P1,P2,P3,P4
+		return QGraphicsScene_update(pObject,P1,P2,P3,P4)
+
+	Func views 
+		return QGraphicsScene_views(pObject)
+
+	Func width 
+		return QGraphicsScene_width(pObject)
+
+	Func advance 
+		return QGraphicsScene_advance(pObject)
+
+	Func clear 
+		return QGraphicsScene_clear(pObject)
+
+	Func clearSelection 
+		return QGraphicsScene_clearSelection(pObject)
+
+	Func invalidate_2 P1,P2
+		return QGraphicsScene_invalidate_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func update_2 P1
+		return QGraphicsScene_update_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setchangedEvent P1
+		return QGraphicsScene_setchangedEvent(pObject,P1)
+
+	Func setfocusItemChangedEvent P1
+		return QGraphicsScene_setfocusItemChangedEvent(pObject,P1)
+
+	Func setsceneRectChangedEvent P1
+		return QGraphicsScene_setsceneRectChangedEvent(pObject,P1)
+
+	Func setselectionChangedEvent P1
+		return QGraphicsScene_setselectionChangedEvent(pObject,P1)
+
+	Func getchangedEvent 
+		return QGraphicsScene_getchangedEvent(pObject)
+
+	Func getfocusItemChangedEvent 
+		return QGraphicsScene_getfocusItemChangedEvent(pObject)
+
+	Func getsceneRectChangedEvent 
+		return QGraphicsScene_getsceneRectChangedEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QGraphicsScene_getselectionChangedEvent(pObject)
+
+Class QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func acceptDrops 
+		return QGraphicsItem_acceptDrops(pObject)
+
+	Func acceptHoverEvents 
+		return QGraphicsItem_acceptHoverEvents(pObject)
+
+	Func acceptTouchEvents 
+		return QGraphicsItem_acceptTouchEvents(pObject)
+
+	Func acceptedMouseButtons 
+		return QGraphicsItem_acceptedMouseButtons(pObject)
+
+	Func advance P1
+		return QGraphicsItem_advance(pObject,P1)
+
+	Func boundingRect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_boundingRect(pObject)
+		return pTempObj
+
+	Func boundingRegion P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QGraphicsItem_boundingRegion(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func boundingRegionGranularity 
+		return QGraphicsItem_boundingRegionGranularity(pObject)
+
+	Func cacheMode 
+		return QGraphicsItem_cacheMode(pObject)
+
+	Func childItems 
+		return QGraphicsItem_childItems(pObject)
+
+	Func childrenBoundingRect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_childrenBoundingRect(pObject)
+		return pTempObj
+
+	Func clearFocus 
+		return QGraphicsItem_clearFocus(pObject)
+
+	Func clipPath 
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsItem_clipPath(pObject)
+		return pTempObj
+
+	Func collidesWithItem P1,P2
+		return QGraphicsItem_collidesWithItem(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func collidesWithPath P1,P2
+		return QGraphicsItem_collidesWithPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func collidingItems P1
+		return QGraphicsItem_collidingItems(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func commonAncestorItem P1
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsItem_commonAncestorItem(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func contains P1
+		return QGraphicsItem_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func cursor 
+		pTempObj = new QCursor
+		pTempObj.pObject = QGraphicsItem_cursor(pObject)
+		return pTempObj
+
+	Func data P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QGraphicsItem_data(pObject,P1)
+		return pTempObj
+
+	Func deviceTransform P1
+		return QGraphicsItem_deviceTransform(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func effectiveOpacity 
+		return QGraphicsItem_effectiveOpacity(pObject)
+
+	Func ensureVisible P1,P2,P3
+		return QGraphicsItem_ensureVisible(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func ensureVisible_2 P1,P2,P3,P4,P5,P6
+		return QGraphicsItem_ensureVisible_2(pObject,P1,P2,P3,P4,P5,P6)
+
+	Func filtersChildEvents 
+		return QGraphicsItem_filtersChildEvents(pObject)
+
+	Func flags 
+		return QGraphicsItem_flags(pObject)
+
+	Func focusItem 
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsItem_focusItem(pObject)
+		return pTempObj
+
+	Func focusProxy 
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsItem_focusProxy(pObject)
+		return pTempObj
+
+	Func grabKeyboard 
+		return QGraphicsItem_grabKeyboard(pObject)
+
+	Func grabMouse 
+		return QGraphicsItem_grabMouse(pObject)
+
+	Func graphicsEffect 
+		pTempObj = new QGraphicsEffect
+		pTempObj.pObject = QGraphicsItem_graphicsEffect(pObject)
+		return pTempObj
+
+	Func group 
+		pTempObj = new QGraphicsItemGroup
+		pTempObj.pObject = QGraphicsItem_group(pObject)
+		return pTempObj
+
+	Func hasCursor 
+		return QGraphicsItem_hasCursor(pObject)
+
+	Func hasFocus 
+		return QGraphicsItem_hasFocus(pObject)
+
+	Func hide 
+		return QGraphicsItem_hide(pObject)
+
+	Func inputMethodHints 
+		return QGraphicsItem_inputMethodHints(pObject)
+
+	Func installSceneEventFilter P1
+		return QGraphicsItem_installSceneEventFilter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isActive 
+		return QGraphicsItem_isActive(pObject)
+
+	Func isAncestorOf P1
+		return QGraphicsItem_isAncestorOf(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isClipped 
+		return QGraphicsItem_isClipped(pObject)
+
+	Func isEnabled 
+		return QGraphicsItem_isEnabled(pObject)
+
+	Func isObscured P1
+		return QGraphicsItem_isObscured(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isObscured_2 P1,P2,P3,P4
+		return QGraphicsItem_isObscured_2(pObject,P1,P2,P3,P4)
+
+	Func isObscuredBy P1
+		return QGraphicsItem_isObscuredBy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isPanel 
+		return QGraphicsItem_isPanel(pObject)
+
+	Func isSelected 
+		return QGraphicsItem_isSelected(pObject)
+
+	Func isUnderMouse 
+		return QGraphicsItem_isUnderMouse(pObject)
+
+	Func isVisible 
+		return QGraphicsItem_isVisible(pObject)
+
+	Func isVisibleTo P1
+		return QGraphicsItem_isVisibleTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isWidget 
+		return QGraphicsItem_isWidget(pObject)
+
+	Func isWindow 
+		return QGraphicsItem_isWindow(pObject)
+
+	Func itemTransform P1,P2
+		return QGraphicsItem_itemTransform(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func mapFromItem P1,P2
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapFromItem(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func mapFromItem_2 P1,P2
+		return QGraphicsItem_mapFromItem_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func mapFromItem_3 P1,P2
+		return QGraphicsItem_mapFromItem_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func mapFromItem_4 P1,P2
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsItem_mapFromItem_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func mapFromItem_5 P1,P2,P3
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapFromItem_5(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+		return pTempObj
+
+	Func mapFromItem_6 P1,P2,P3,P4,P5
+		return QGraphicsItem_mapFromItem_6(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+
+	Func mapFromParent P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapFromParent(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapFromParent_2 P1
+		return QGraphicsItem_mapFromParent_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapFromParent_3 P1
+		return QGraphicsItem_mapFromParent_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapFromParent_4 P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsItem_mapFromParent_4(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapFromParent_5 P1,P2
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapFromParent_5(pObject,P1,P2)
+		return pTempObj
+
+	Func mapFromParent_6 P1,P2,P3,P4
+		return QGraphicsItem_mapFromParent_6(pObject,P1,P2,P3,P4)
+
+	Func mapFromScene P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapFromScene(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapFromScene_2 P1
+		return QGraphicsItem_mapFromScene_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapFromScene_3 P1
+		return QGraphicsItem_mapFromScene_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapFromScene_4 P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsItem_mapFromScene_4(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapFromScene_5 P1,P2
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapFromScene_5(pObject,P1,P2)
+		return pTempObj
+
+	Func mapFromScene_6 P1,P2,P3,P4
+		return QGraphicsItem_mapFromScene_6(pObject,P1,P2,P3,P4)
+
+	Func mapRectFromItem P1,P2
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromItem(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func mapRectFromItem_2 P1,P2,P3,P4,P5
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromItem_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+		return pTempObj
+
+	Func mapRectFromParent P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromParent(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapRectFromParent_2 P1,P2,P3,P4
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromParent_2(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func mapRectFromScene P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromScene(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapRectFromScene_2 P1,P2,P3,P4
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromScene_2(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func mapRectToItem P1,P2
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToItem(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func mapRectToItem_2 P1,P2,P3,P4,P5
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToItem_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+		return pTempObj
+
+	Func mapRectToParent P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToParent(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapRectToParent_2 P1,P2,P3,P4
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToParent_2(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func mapRectToScene P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToScene(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapRectToScene_2 P1,P2,P3,P4
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToScene_2(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func mapToItem P1,P2
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapToItem(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func mapToItem_2 P1,P2
+		return QGraphicsItem_mapToItem_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func mapToItem_3 P1,P2
+		return QGraphicsItem_mapToItem_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func mapToItem_4 P1,P2
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsItem_mapToItem_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func mapToItem_5 P1,P2,P3
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapToItem_5(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+		return pTempObj
+
+	Func mapToItem_6 P1,P2,P3,P4,P5
+		return QGraphicsItem_mapToItem_6(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+
+	Func mapToParent P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapToParent(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToParent_2 P1
+		return QGraphicsItem_mapToParent_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapToParent_3 P1
+		return QGraphicsItem_mapToParent_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapToParent_4 P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsItem_mapToParent_4(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToParent_5 P1,P2
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapToParent_5(pObject,P1,P2)
+		return pTempObj
+
+	Func mapToParent_6 P1,P2,P3,P4
+		return QGraphicsItem_mapToParent_6(pObject,P1,P2,P3,P4)
+
+	Func mapToScene P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapToScene(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToScene_2 P1
+		return QGraphicsItem_mapToScene_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapToScene_3 P1
+		return QGraphicsItem_mapToScene_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mapToScene_4 P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsItem_mapToScene_4(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToScene_5 P1,P2
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_mapToScene_5(pObject,P1,P2)
+		return pTempObj
+
+	Func mapToScene_6 P1,P2,P3,P4
+		return QGraphicsItem_mapToScene_6(pObject,P1,P2,P3,P4)
+
+	Func moveBy P1,P2
+		return QGraphicsItem_moveBy(pObject,P1,P2)
+
+	Func opacity 
+		return QGraphicsItem_opacity(pObject)
+
+	Func opaqueArea 
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsItem_opaqueArea(pObject)
+		return pTempObj
+
+	Func paint P1,P2,P3
+		return QGraphicsItem_paint(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func panel 
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsItem_panel(pObject)
+		return pTempObj
+
+	Func panelModality 
+		return QGraphicsItem_panelModality(pObject)
+
+	Func parentItem 
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsItem_parentItem(pObject)
+		return pTempObj
+
+	Func parentObject 
+		pTempObj = new QGraphicsObject
+		pTempObj.pObject = QGraphicsItem_parentObject(pObject)
+		return pTempObj
+
+	Func parentWidget 
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsItem_parentWidget(pObject)
+		return pTempObj
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_pos(pObject)
+		return pTempObj
+
+	Func removeSceneEventFilter P1
+		return QGraphicsItem_removeSceneEventFilter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func resetTransform 
+		return QGraphicsItem_resetTransform(pObject)
+
+	Func rotation 
+		return QGraphicsItem_rotation(pObject)
+
+	Func scale 
+		return QGraphicsItem_scale(pObject)
+
+	Func scene 
+		pTempObj = new QGraphicsScene
+		pTempObj.pObject = QGraphicsItem_scene(pObject)
+		return pTempObj
+
+	Func sceneBoundingRect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_sceneBoundingRect(pObject)
+		return pTempObj
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_scenePos(pObject)
+		return pTempObj
+
+	Func sceneTransform 
+		return QGraphicsItem_sceneTransform(pObject)
+
+	Func scroll P1,P2,P3
+		return QGraphicsItem_scroll(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func setAcceptDrops P1
+		return QGraphicsItem_setAcceptDrops(pObject,P1)
+
+	Func setAcceptHoverEvents P1
+		return QGraphicsItem_setAcceptHoverEvents(pObject,P1)
+
+	Func setAcceptTouchEvents P1
+		return QGraphicsItem_setAcceptTouchEvents(pObject,P1)
+
+	Func setAcceptedMouseButtons P1
+		return QGraphicsItem_setAcceptedMouseButtons(pObject,P1)
+
+	Func setActive P1
+		return QGraphicsItem_setActive(pObject,P1)
+
+	Func setBoundingRegionGranularity P1
+		return QGraphicsItem_setBoundingRegionGranularity(pObject,P1)
+
+	Func setCacheMode P1,P2
+		return QGraphicsItem_setCacheMode(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setCursor P1
+		return QGraphicsItem_setCursor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setData P1,P2
+		return QGraphicsItem_setData(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setEnabled P1
+		return QGraphicsItem_setEnabled(pObject,P1)
+
+	Func setFiltersChildEvents P1
+		return QGraphicsItem_setFiltersChildEvents(pObject,P1)
+
+	Func setFlag P1,P2
+		return QGraphicsItem_setFlag(pObject,P1,P2)
+
+	Func setFlags P1
+		return QGraphicsItem_setFlags(pObject,P1)
+
+	Func setFocus P1
+		return QGraphicsItem_setFocus(pObject,P1)
+
+	Func setFocusProxy P1
+		return QGraphicsItem_setFocusProxy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGraphicsEffect P1
+		return QGraphicsItem_setGraphicsEffect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGroup P1
+		return QGraphicsItem_setGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setInputMethodHints P1
+		return QGraphicsItem_setInputMethodHints(pObject,P1)
+
+	Func setOpacity P1
+		return QGraphicsItem_setOpacity(pObject,P1)
+
+	Func setPanelModality P1
+		return QGraphicsItem_setPanelModality(pObject,P1)
+
+	Func setParentItem P1
+		return QGraphicsItem_setParentItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPos P1
+		return QGraphicsItem_setPos(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPos_2 P1,P2
+		return QGraphicsItem_setPos_2(pObject,P1,P2)
+
+	Func setRotation P1
+		return QGraphicsItem_setRotation(pObject,P1)
+
+	Func setScale P1
+		return QGraphicsItem_setScale(pObject,P1)
+
+	Func setSelected P1
+		return QGraphicsItem_setSelected(pObject,P1)
+
+	Func setToolTip P1
+		return QGraphicsItem_setToolTip(pObject,P1)
+
+	Func setTransform P1,P2
+		return QGraphicsItem_setTransform(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setTransformOriginPoint P1
+		return QGraphicsItem_setTransformOriginPoint(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTransformOriginPoint_2 P1,P2
+		return QGraphicsItem_setTransformOriginPoint_2(pObject,P1,P2)
+
+	Func setTransformations P1
+		return QGraphicsItem_setTransformations(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setVisible P1
+		return QGraphicsItem_setVisible(pObject,P1)
+
+	Func setX P1
+		return QGraphicsItem_setX(pObject,P1)
+
+	Func setY P1
+		return QGraphicsItem_setY(pObject,P1)
+
+	Func setZValue P1
+		return QGraphicsItem_setZValue(pObject,P1)
+
+	Func shape 
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsItem_shape(pObject)
+		return pTempObj
+
+	Func show 
+		return QGraphicsItem_show(pObject)
+
+	Func stackBefore P1
+		return QGraphicsItem_stackBefore(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toGraphicsObject 
+		pTempObj = new QGraphicsObject
+		pTempObj.pObject = QGraphicsItem_toGraphicsObject(pObject)
+		return pTempObj
+
+	Func toGraphicsObject_2 
+		pTempObj = new QGraphicsObject
+		pTempObj.pObject = QGraphicsItem_toGraphicsObject_2(pObject)
+		return pTempObj
+
+	Func toolTip 
+		return QGraphicsItem_toolTip(pObject)
+
+	Func topLevelItem 
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsItem_topLevelItem(pObject)
+		return pTempObj
+
+	Func topLevelWidget 
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsItem_topLevelWidget(pObject)
+		return pTempObj
+
+	Func transform 
+		return QGraphicsItem_transform(pObject)
+
+	Func transformOriginPoint 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsItem_transformOriginPoint(pObject)
+		return pTempObj
+
+	Func transformations 
+		return QGraphicsItem_transformations(pObject)
+
+	Func type 
+		return QGraphicsItem_type(pObject)
+
+	Func ungrabKeyboard 
+		return QGraphicsItem_ungrabKeyboard(pObject)
+
+	Func ungrabMouse 
+		return QGraphicsItem_ungrabMouse(pObject)
+
+	Func unsetCursor 
+		return QGraphicsItem_unsetCursor(pObject)
+
+	Func update P1
+		return QGraphicsItem_update(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func update_2 P1,P2,P3,P4
+		return QGraphicsItem_update_2(pObject,P1,P2,P3,P4)
+
+	Func window 
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsItem_window(pObject)
+		return pTempObj
+
+	Func x 
+		return QGraphicsItem_x(pObject)
+
+	Func y 
+		return QGraphicsItem_y(pObject)
+
+	Func zValue 
+		return QGraphicsItem_zValue(pObject)
+
+Class QAbstractGraphicsShapeItem from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QAbstractGraphicsShapeItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAbstractGraphicsShapeItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QAbstractGraphicsShapeItem_brush(pObject)
+		return pTempObj
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QAbstractGraphicsShapeItem_pen(pObject)
+		return pTempObj
+
+	Func setBrush P1
+		return QAbstractGraphicsShapeItem_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPen P1
+		return QAbstractGraphicsShapeItem_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsAnchor from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsAnchor_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsAnchor_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func setSizePolicy P1
+		return QGraphicsAnchor_setSizePolicy(pObject,P1)
+
+	Func setSpacing P1
+		return QGraphicsAnchor_setSpacing(pObject,P1)
+
+	Func sizePolicy 
+		return QGraphicsAnchor_sizePolicy(pObject)
+
+	Func spacing 
+		return QGraphicsAnchor_spacing(pObject)
+
+	Func unsetSpacing 
+		return QGraphicsAnchor_unsetSpacing(pObject)
+
+Class QGraphicsAnchorLayout from QGraphicsLayout
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsAnchorLayout_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsAnchorLayout_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addAnchor P1,P2,P3,P4
+		pTempObj = new QGraphicsAnchor
+		pTempObj.pObject = QGraphicsAnchorLayout_addAnchor(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		return pTempObj
+
+	Func addAnchors P1,P2,P3
+		return QGraphicsAnchorLayout_addAnchors(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func addCornerAnchors P1,P2,P3,P4
+		return QGraphicsAnchorLayout_addCornerAnchors(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func anchor P1,P2,P3,P4
+		pTempObj = new QGraphicsAnchor
+		pTempObj.pObject = QGraphicsAnchorLayout_anchor(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		return pTempObj
+
+	Func horizontalSpacing 
+		return QGraphicsAnchorLayout_horizontalSpacing(pObject)
+
+	Func setHorizontalSpacing P1
+		return QGraphicsAnchorLayout_setHorizontalSpacing(pObject,P1)
+
+	Func setSpacing P1
+		return QGraphicsAnchorLayout_setSpacing(pObject,P1)
+
+	Func setVerticalSpacing P1
+		return QGraphicsAnchorLayout_setVerticalSpacing(pObject,P1)
+
+	Func verticalSpacing 
+		return QGraphicsAnchorLayout_verticalSpacing(pObject)
+
+Class QGraphicsLayout from QGraphicsLayoutItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsLayout_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsLayout_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func activate 
+		return QGraphicsLayout_activate(pObject)
+
+	Func count 
+		return QGraphicsLayout_count(pObject)
+
+	Func invalidate 
+		return QGraphicsLayout_invalidate(pObject)
+
+	Func isActivated 
+		return QGraphicsLayout_isActivated(pObject)
+
+	Func itemAt P1
+		pTempObj = new QGraphicsLayoutItem
+		pTempObj.pObject = QGraphicsLayout_itemAt(pObject,P1)
+		return pTempObj
+
+	Func removeAt P1
+		return QGraphicsLayout_removeAt(pObject,P1)
+
+	Func setContentsMargins P1,P2,P3,P4
+		return QGraphicsLayout_setContentsMargins(pObject,P1,P2,P3,P4)
+
+	Func widgetEvent P1
+		return QGraphicsLayout_widgetEvent(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsEllipseItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsEllipseItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsEllipseItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func rect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsEllipseItem_rect(pObject)
+		return pTempObj
+
+	Func setRect P1
+		return QGraphicsEllipseItem_setRect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRect_2 P1,P2,P3,P4
+		return QGraphicsEllipseItem_setRect_2(pObject,P1,P2,P3,P4)
+
+	Func setSpanAngle P1
+		return QGraphicsEllipseItem_setSpanAngle(pObject,P1)
+
+	Func setStartAngle P1
+		return QGraphicsEllipseItem_setStartAngle(pObject,P1)
+
+	Func spanAngle 
+		return QGraphicsEllipseItem_spanAngle(pObject)
+
+	Func startAngle 
+		return QGraphicsEllipseItem_startAngle(pObject)
+
+Class QGraphicsGridLayout from QGraphicsLayout
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsGridLayout_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsGridLayout_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addItem P1,P2,P3,P4,P5,P6
+		return QGraphicsGridLayout_addItem(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,P6)
+
+	Func addItem_2 P1,P2,P3,P4
+		return QGraphicsGridLayout_addItem_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+
+	Func alignment P1
+		return QGraphicsGridLayout_alignment(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func columnAlignment P1
+		return QGraphicsGridLayout_columnAlignment(pObject,P1)
+
+	Func columnCount 
+		return QGraphicsGridLayout_columnCount(pObject)
+
+	Func columnMaximumWidth P1
+		return QGraphicsGridLayout_columnMaximumWidth(pObject,P1)
+
+	Func columnMinimumWidth P1
+		return QGraphicsGridLayout_columnMinimumWidth(pObject,P1)
+
+	Func columnPreferredWidth P1
+		return QGraphicsGridLayout_columnPreferredWidth(pObject,P1)
+
+	Func columnSpacing P1
+		return QGraphicsGridLayout_columnSpacing(pObject,P1)
+
+	Func columnStretchFactor P1
+		return QGraphicsGridLayout_columnStretchFactor(pObject,P1)
+
+	Func horizontalSpacing 
+		return QGraphicsGridLayout_horizontalSpacing(pObject)
+
+	Func itemAt P1,P2
+		pTempObj = new QGraphicsLayoutItem
+		pTempObj.pObject = QGraphicsGridLayout_itemAt(pObject,P1,P2)
+		return pTempObj
+
+	Func removeItem P1
+		return QGraphicsGridLayout_removeItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func rowAlignment P1
+		return QGraphicsGridLayout_rowAlignment(pObject,P1)
+
+	Func rowCount 
+		return QGraphicsGridLayout_rowCount(pObject)
+
+	Func rowMaximumHeight P1
+		return QGraphicsGridLayout_rowMaximumHeight(pObject,P1)
+
+	Func rowMinimumHeight P1
+		return QGraphicsGridLayout_rowMinimumHeight(pObject,P1)
+
+	Func rowPreferredHeight P1
+		return QGraphicsGridLayout_rowPreferredHeight(pObject,P1)
+
+	Func rowSpacing P1
+		return QGraphicsGridLayout_rowSpacing(pObject,P1)
+
+	Func rowStretchFactor P1
+		return QGraphicsGridLayout_rowStretchFactor(pObject,P1)
+
+	Func setAlignment P1,P2
+		return QGraphicsGridLayout_setAlignment(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setColumnAlignment P1,P2
+		return QGraphicsGridLayout_setColumnAlignment(pObject,P1,P2)
+
+	Func setColumnFixedWidth P1,P2
+		return QGraphicsGridLayout_setColumnFixedWidth(pObject,P1,P2)
+
+	Func setColumnMaximumWidth P1,P2
+		return QGraphicsGridLayout_setColumnMaximumWidth(pObject,P1,P2)
+
+	Func setColumnMinimumWidth P1,P2
+		return QGraphicsGridLayout_setColumnMinimumWidth(pObject,P1,P2)
+
+	Func setColumnPreferredWidth P1,P2
+		return QGraphicsGridLayout_setColumnPreferredWidth(pObject,P1,P2)
+
+	Func setColumnSpacing P1,P2
+		return QGraphicsGridLayout_setColumnSpacing(pObject,P1,P2)
+
+	Func setColumnStretchFactor P1,P2
+		return QGraphicsGridLayout_setColumnStretchFactor(pObject,P1,P2)
+
+	Func setHorizontalSpacing P1
+		return QGraphicsGridLayout_setHorizontalSpacing(pObject,P1)
+
+	Func setRowAlignment P1,P2
+		return QGraphicsGridLayout_setRowAlignment(pObject,P1,P2)
+
+	Func setRowFixedHeight P1,P2
+		return QGraphicsGridLayout_setRowFixedHeight(pObject,P1,P2)
+
+	Func setRowMaximumHeight P1,P2
+		return QGraphicsGridLayout_setRowMaximumHeight(pObject,P1,P2)
+
+	Func setRowMinimumHeight P1,P2
+		return QGraphicsGridLayout_setRowMinimumHeight(pObject,P1,P2)
+
+	Func setRowPreferredHeight P1,P2
+		return QGraphicsGridLayout_setRowPreferredHeight(pObject,P1,P2)
+
+	Func setRowSpacing P1,P2
+		return QGraphicsGridLayout_setRowSpacing(pObject,P1,P2)
+
+	Func setRowStretchFactor P1,P2
+		return QGraphicsGridLayout_setRowStretchFactor(pObject,P1,P2)
+
+	Func setSpacing P1
+		return QGraphicsGridLayout_setSpacing(pObject,P1)
+
+	Func setVerticalSpacing P1
+		return QGraphicsGridLayout_setVerticalSpacing(pObject,P1)
+
+	Func verticalSpacing 
+		return QGraphicsGridLayout_verticalSpacing(pObject)
+
+Class QGraphicsItemGroup from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsItemGroup_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsItemGroup_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addToGroup P1
+		return QGraphicsItemGroup_addToGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeFromGroup P1
+		return QGraphicsItemGroup_removeFromGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsLayoutItem
+
+	pObject
+
+	Func init P1,P2
+		pObject = QGraphicsLayoutItem_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QGraphicsLayoutItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func contentsRect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsLayoutItem_contentsRect(pObject)
+		return pTempObj
+
+	Func effectiveSizeHint P1,P2
+		return QGraphicsLayoutItem_effectiveSizeHint(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func geometry 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsLayoutItem_geometry(pObject)
+		return pTempObj
+
+	Func getContentsMargins P1,P2,P3,P4
+		return QGraphicsLayoutItem_getContentsMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func graphicsItem 
+		pTempObj = new QGraphicsItem
+		pTempObj.pObject = QGraphicsLayoutItem_graphicsItem(pObject)
+		return pTempObj
+
+	Func isLayout 
+		return QGraphicsLayoutItem_isLayout(pObject)
+
+	Func maximumHeight 
+		return QGraphicsLayoutItem_maximumHeight(pObject)
+
+	Func maximumSize 
+		return QGraphicsLayoutItem_maximumSize(pObject)
+
+	Func maximumWidth 
+		return QGraphicsLayoutItem_maximumWidth(pObject)
+
+	Func minimumHeight 
+		return QGraphicsLayoutItem_minimumHeight(pObject)
+
+	Func minimumSize 
+		return QGraphicsLayoutItem_minimumSize(pObject)
+
+	Func minimumWidth 
+		return QGraphicsLayoutItem_minimumWidth(pObject)
+
+	Func ownedByLayout 
+		return QGraphicsLayoutItem_ownedByLayout(pObject)
+
+	Func parentLayoutItem 
+		pTempObj = new QGraphicsLayoutItem
+		pTempObj.pObject = QGraphicsLayoutItem_parentLayoutItem(pObject)
+		return pTempObj
+
+	Func preferredHeight 
+		return QGraphicsLayoutItem_preferredHeight(pObject)
+
+	Func preferredSize 
+		return QGraphicsLayoutItem_preferredSize(pObject)
+
+	Func preferredWidth 
+		return QGraphicsLayoutItem_preferredWidth(pObject)
+
+	Func setGeometry P1
+		return QGraphicsLayoutItem_setGeometry(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMaximumHeight P1
+		return QGraphicsLayoutItem_setMaximumHeight(pObject,P1)
+
+	Func setMaximumSize P1
+		return QGraphicsLayoutItem_setMaximumSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMaximumSize_2 P1,P2
+		return QGraphicsLayoutItem_setMaximumSize_2(pObject,P1,P2)
+
+	Func setMaximumWidth P1
+		return QGraphicsLayoutItem_setMaximumWidth(pObject,P1)
+
+	Func setMinimumHeight P1
+		return QGraphicsLayoutItem_setMinimumHeight(pObject,P1)
+
+	Func setMinimumSize P1
+		return QGraphicsLayoutItem_setMinimumSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMinimumSize_2 P1,P2
+		return QGraphicsLayoutItem_setMinimumSize_2(pObject,P1,P2)
+
+	Func setMinimumWidth P1
+		return QGraphicsLayoutItem_setMinimumWidth(pObject,P1)
+
+	Func setParentLayoutItem P1
+		return QGraphicsLayoutItem_setParentLayoutItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPreferredHeight P1
+		return QGraphicsLayoutItem_setPreferredHeight(pObject,P1)
+
+	Func setPreferredSize P1
+		return QGraphicsLayoutItem_setPreferredSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPreferredSize_2 P1,P2
+		return QGraphicsLayoutItem_setPreferredSize_2(pObject,P1,P2)
+
+	Func setPreferredWidth P1
+		return QGraphicsLayoutItem_setPreferredWidth(pObject,P1)
+
+	Func setSizePolicy P1
+		return QGraphicsLayoutItem_setSizePolicy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSizePolicy_2 P1,P2,P3
+		return QGraphicsLayoutItem_setSizePolicy_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func sizePolicy 
+		return QGraphicsLayoutItem_sizePolicy(pObject)
+
+	Func updateGeometry 
+		return QGraphicsLayoutItem_updateGeometry(pObject)
+
+Class QGraphicsLineItem from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsLineItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsLineItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func line 
+		pTempObj = new QLineF
+		pTempObj.pObject = QGraphicsLineItem_line(pObject)
+		return pTempObj
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QGraphicsLineItem_pen(pObject)
+		return pTempObj
+
+	Func setLine P1
+		return QGraphicsLineItem_setLine(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLine_2 P1,P2,P3,P4
+		return QGraphicsLineItem_setLine_2(pObject,P1,P2,P3,P4)
+
+	Func setPen P1
+		return QGraphicsLineItem_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsLinearLayout from QGraphicsLayout
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsLinearLayout_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsLinearLayout_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addItem P1
+		return QGraphicsLinearLayout_addItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addStretch P1
+		return QGraphicsLinearLayout_addStretch(pObject,P1)
+
+	Func alignment P1
+		return QGraphicsLinearLayout_alignment(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func insertItem P1,P2
+		return QGraphicsLinearLayout_insertItem(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func insertStretch P1,P2
+		return QGraphicsLinearLayout_insertStretch(pObject,P1,P2)
+
+	Func itemSpacing P1
+		return QGraphicsLinearLayout_itemSpacing(pObject,P1)
+
+	Func orientation 
+		return QGraphicsLinearLayout_orientation(pObject)
+
+	Func removeItem P1
+		return QGraphicsLinearLayout_removeItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setAlignment P1,P2
+		return QGraphicsLinearLayout_setAlignment(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setItemSpacing P1,P2
+		return QGraphicsLinearLayout_setItemSpacing(pObject,P1,P2)
+
+	Func setOrientation P1
+		return QGraphicsLinearLayout_setOrientation(pObject,P1)
+
+	Func setSpacing P1
+		return QGraphicsLinearLayout_setSpacing(pObject,P1)
+
+	Func setStretchFactor P1,P2
+		return QGraphicsLinearLayout_setStretchFactor(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func spacing 
+		return QGraphicsLinearLayout_spacing(pObject)
+
+	Func stretchFactor P1
+		return QGraphicsLinearLayout_stretchFactor(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsPathItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsPathItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsPathItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func path 
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsPathItem_path(pObject)
+		return pTempObj
+
+	Func setPath P1
+		return QGraphicsPathItem_setPath(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsPixmapItem from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsPixmapItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsPixmapItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func offset 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsPixmapItem_offset(pObject)
+		return pTempObj
+
+	Func pixmap 
+		pTempObj = new QPixmap
+		pTempObj.pObject = QGraphicsPixmapItem_pixmap(pObject)
+		return pTempObj
+
+	Func setOffset P1
+		return QGraphicsPixmapItem_setOffset(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setOffset_2 P1,P2
+		return QGraphicsPixmapItem_setOffset_2(pObject,P1,P2)
+
+	Func setPixmap P1
+		return QGraphicsPixmapItem_setPixmap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShapeMode P1
+		return QGraphicsPixmapItem_setShapeMode(pObject,P1)
+
+	Func setTransformationMode P1
+		return QGraphicsPixmapItem_setTransformationMode(pObject,P1)
+
+	Func shapeMode 
+		return QGraphicsPixmapItem_shapeMode(pObject)
+
+	Func transformationMode 
+		return QGraphicsPixmapItem_transformationMode(pObject)
+
+Class QGraphicsPolygonItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsPolygonItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsPolygonItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func fillRule 
+		return QGraphicsPolygonItem_fillRule(pObject)
+
+	Func polygon 
+		return QGraphicsPolygonItem_polygon(pObject)
+
+	Func setFillRule P1
+		return QGraphicsPolygonItem_setFillRule(pObject,P1)
+
+	Func setPolygon P1
+		return QGraphicsPolygonItem_setPolygon(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsProxyWidget from QGraphicsWidget
+
+	pObject
+
+	Func init P1,P2
+		pObject = QGraphicsProxyWidget_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QGraphicsProxyWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func createProxyForChildWidget P1
+		pTempObj = new QGraphicsProxyWidget
+		pTempObj.pObject = QGraphicsProxyWidget_createProxyForChildWidget(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setWidget P1
+		return QGraphicsProxyWidget_setWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func subWidgetRect P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsProxyWidget_subWidgetRect(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func widget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QGraphicsProxyWidget_widget(pObject)
+		return pTempObj
+
+Class QGraphicsRectItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsRectItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsRectItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func rect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsRectItem_rect(pObject)
+		return pTempObj
+
+	Func setRect P1
+		return QGraphicsRectItem_setRect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRect_2 P1,P2,P3,P4
+		return QGraphicsRectItem_setRect_2(pObject,P1,P2,P3,P4)
+
+Class QGraphicsSceneContextMenuEvent from QGraphicsSceneEvent
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSceneContextMenuEvent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSceneContextMenuEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func modifiers 
+		return QGraphicsSceneContextMenuEvent_modifiers(pObject)
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneContextMenuEvent_pos(pObject)
+		return pTempObj
+
+	Func reason 
+		return QGraphicsSceneContextMenuEvent_reason(pObject)
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneContextMenuEvent_scenePos(pObject)
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneContextMenuEvent_screenPos(pObject)
+		return pTempObj
+
+Class QGraphicsSceneDragDropEvent from QGraphicsSceneEvent
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSceneDragDropEvent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSceneDragDropEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func acceptProposedAction 
+		return QGraphicsSceneDragDropEvent_acceptProposedAction(pObject)
+
+	Func buttons 
+		return QGraphicsSceneDragDropEvent_buttons(pObject)
+
+	Func dropAction 
+		return QGraphicsSceneDragDropEvent_dropAction(pObject)
+
+	Func mimeData 
+		pTempObj = new QMimeData
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_mimeData(pObject)
+		return pTempObj
+
+	Func modifiers 
+		return QGraphicsSceneDragDropEvent_modifiers(pObject)
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_pos(pObject)
+		return pTempObj
+
+	Func possibleActions 
+		return QGraphicsSceneDragDropEvent_possibleActions(pObject)
+
+	Func proposedAction 
+		return QGraphicsSceneDragDropEvent_proposedAction(pObject)
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_scenePos(pObject)
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_screenPos(pObject)
+		return pTempObj
+
+	Func setDropAction P1
+		return QGraphicsSceneDragDropEvent_setDropAction(pObject,P1)
+
+	Func source 
+		pTempObj = new QWidget
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_source(pObject)
+		return pTempObj
+
+Class QGraphicsSceneEvent from QEvent
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSceneEvent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSceneEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func widget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QGraphicsSceneEvent_widget(pObject)
+		return pTempObj
+
+Class QGraphicsSceneHelpEvent from QGraphicsSceneEvent
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSceneHelpEvent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSceneHelpEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHelpEvent_scenePos(pObject)
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneHelpEvent_screenPos(pObject)
+		return pTempObj
+
+Class QGraphicsSceneHoverEvent from QGraphicsSceneEvent
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSceneHoverEvent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSceneHoverEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func lastPos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHoverEvent_lastPos(pObject)
+		return pTempObj
+
+	Func lastScenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHoverEvent_lastScenePos(pObject)
+		return pTempObj
+
+	Func lastScreenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneHoverEvent_lastScreenPos(pObject)
+		return pTempObj
+
+	Func modifiers 
+		return QGraphicsSceneHoverEvent_modifiers(pObject)
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHoverEvent_pos(pObject)
+		return pTempObj
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHoverEvent_scenePos(pObject)
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneHoverEvent_screenPos(pObject)
+		return pTempObj
+
+Class QGraphicsSceneMouseEvent from QGraphicsSceneEvent
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSceneMouseEvent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSceneMouseEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func button 
+		return QGraphicsSceneMouseEvent_button(pObject)
+
+	Func buttonDownPos P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownPos(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func buttonDownScenePos P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownScenePos(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func buttonDownScreenPos P1
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownScreenPos(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func buttons 
+		return QGraphicsSceneMouseEvent_buttons(pObject)
+
+	Func flags 
+		return QGraphicsSceneMouseEvent_flags(pObject)
+
+	Func lastPos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_lastPos(pObject)
+		return pTempObj
+
+	Func lastScenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_lastScenePos(pObject)
+		return pTempObj
+
+	Func lastScreenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneMouseEvent_lastScreenPos(pObject)
+		return pTempObj
+
+	Func modifiers 
+		return QGraphicsSceneMouseEvent_modifiers(pObject)
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_pos(pObject)
+		return pTempObj
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_scenePos(pObject)
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneMouseEvent_screenPos(pObject)
+		return pTempObj
+
+	Func source 
+		return QGraphicsSceneMouseEvent_source(pObject)
+
+Class QGraphicsSceneMoveEvent from QGraphicsSceneEvent
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSceneMoveEvent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSceneMoveEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func newPos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMoveEvent_newPos(pObject)
+		return pTempObj
+
+	Func oldPos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMoveEvent_oldPos(pObject)
+		return pTempObj
+
+Class QGraphicsSceneResizeEvent from QGraphicsSceneEvent
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSceneResizeEvent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSceneResizeEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func newSize 
+		return QGraphicsSceneResizeEvent_newSize(pObject)
+
+	Func oldSize 
+		return QGraphicsSceneResizeEvent_oldSize(pObject)
+
+Class QGraphicsSceneWheelEvent from QGraphicsSceneEvent
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSceneWheelEvent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSceneWheelEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func buttons 
+		return QGraphicsSceneWheelEvent_buttons(pObject)
+
+	Func delta 
+		return QGraphicsSceneWheelEvent_delta(pObject)
+
+	Func modifiers 
+		return QGraphicsSceneWheelEvent_modifiers(pObject)
+
+	Func orientation 
+		return QGraphicsSceneWheelEvent_orientation(pObject)
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneWheelEvent_pos(pObject)
+		return pTempObj
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneWheelEvent_scenePos(pObject)
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneWheelEvent_screenPos(pObject)
+		return pTempObj
+
+Class QGraphicsSimpleTextItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSimpleTextItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSimpleTextItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QGraphicsSimpleTextItem_font(pObject)
+		return pTempObj
+
+	Func setFont P1
+		return QGraphicsSimpleTextItem_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setText P1
+		return QGraphicsSimpleTextItem_setText(pObject,P1)
+
+	Func text 
+		return QGraphicsSimpleTextItem_text(pObject)
+
+Class QStyleOptionGraphicsItem from QStyleOption
+
+	pObject
+
+	Func init 
+		pObject = QStyleOptionGraphicsItem_new()
+		return self
+
+	Func delete
+		pObject = QStyleOptionGraphicsItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func levelOfDetailFromTransform P1
+		return QStyleOptionGraphicsItem_levelOfDetailFromTransform(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsEffect from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsEffect_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsEffect_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func boundingRect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsEffect_boundingRect(pObject)
+		return pTempObj
+
+	Func boundingRectFor P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsEffect_boundingRectFor(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func isEnabled 
+		return QGraphicsEffect_isEnabled(pObject)
+
+	Func setEnabled P1
+		return QGraphicsEffect_setEnabled(pObject,P1)
+
+	Func update 
+		return QGraphicsEffect_update(pObject)
+
+	Func setenabledChangedEvent P1
+		return QGraphicsEffect_setenabledChangedEvent(pObject,P1)
+
+	Func getenabledChangedEvent 
+		return QGraphicsEffect_getenabledChangedEvent(pObject)
+
+Class QGraphicsObject from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsObject_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsObject_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func grabGesture P1,P2
+		return QGraphicsObject_grabGesture(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func ungrabGesture P1
+		return QGraphicsObject_ungrabGesture(pObject,P1)
+
+	Func setenabledChangedEvent P1
+		return QGraphicsObject_setenabledChangedEvent(pObject,P1)
+
+	Func setopacityChangedEvent P1
+		return QGraphicsObject_setopacityChangedEvent(pObject,P1)
+
+	Func setparentChangedEvent P1
+		return QGraphicsObject_setparentChangedEvent(pObject,P1)
+
+	Func setrotationChangedEvent P1
+		return QGraphicsObject_setrotationChangedEvent(pObject,P1)
+
+	Func setscaleChangedEvent P1
+		return QGraphicsObject_setscaleChangedEvent(pObject,P1)
+
+	Func setvisibleChangedEvent P1
+		return QGraphicsObject_setvisibleChangedEvent(pObject,P1)
+
+	Func setxChangedEvent P1
+		return QGraphicsObject_setxChangedEvent(pObject,P1)
+
+	Func setyChangedEvent P1
+		return QGraphicsObject_setyChangedEvent(pObject,P1)
+
+	Func setzChangedEvent P1
+		return QGraphicsObject_setzChangedEvent(pObject,P1)
+
+	Func getenabledChangedEvent 
+		return QGraphicsObject_getenabledChangedEvent(pObject)
+
+	Func getopacityChangedEvent 
+		return QGraphicsObject_getopacityChangedEvent(pObject)
+
+	Func getparentChangedEvent 
+		return QGraphicsObject_getparentChangedEvent(pObject)
+
+	Func getrotationChangedEvent 
+		return QGraphicsObject_getrotationChangedEvent(pObject)
+
+	Func getscaleChangedEvent 
+		return QGraphicsObject_getscaleChangedEvent(pObject)
+
+	Func getvisibleChangedEvent 
+		return QGraphicsObject_getvisibleChangedEvent(pObject)
+
+	Func getxChangedEvent 
+		return QGraphicsObject_getxChangedEvent(pObject)
+
+	Func getyChangedEvent 
+		return QGraphicsObject_getyChangedEvent(pObject)
+
+	Func getzChangedEvent 
+		return QGraphicsObject_getzChangedEvent(pObject)
+
+Class QGraphicsTextItem from QGraphicsObject
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsTextItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsTextItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func adjustSize 
+		return QGraphicsTextItem_adjustSize(pObject)
+
+	Func defaultTextColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QGraphicsTextItem_defaultTextColor(pObject)
+		return pTempObj
+
+	Func document 
+		pTempObj = new QTextDocument
+		pTempObj.pObject = QGraphicsTextItem_document(pObject)
+		return pTempObj
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QGraphicsTextItem_font(pObject)
+		return pTempObj
+
+	Func openExternalLinks 
+		return QGraphicsTextItem_openExternalLinks(pObject)
+
+	Func setDefaultTextColor P1
+		return QGraphicsTextItem_setDefaultTextColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDocument P1
+		return QGraphicsTextItem_setDocument(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFont P1
+		return QGraphicsTextItem_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHtml P1
+		return QGraphicsTextItem_setHtml(pObject,P1)
+
+	Func setOpenExternalLinks P1
+		return QGraphicsTextItem_setOpenExternalLinks(pObject,P1)
+
+	Func setPlainText P1
+		return QGraphicsTextItem_setPlainText(pObject,P1)
+
+	Func setTabChangesFocus P1
+		return QGraphicsTextItem_setTabChangesFocus(pObject,P1)
+
+	Func setTextCursor P1
+		return QGraphicsTextItem_setTextCursor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTextInteractionFlags P1
+		return QGraphicsTextItem_setTextInteractionFlags(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTextWidth P1
+		return QGraphicsTextItem_setTextWidth(pObject,P1)
+
+	Func tabChangesFocus 
+		return QGraphicsTextItem_tabChangesFocus(pObject)
+
+	Func textCursor 
+		pTempObj = new QTextCursor
+		pTempObj.pObject = QGraphicsTextItem_textCursor(pObject)
+		return pTempObj
+
+	Func textInteractionFlags 
+		return QGraphicsTextItem_textInteractionFlags(pObject)
+
+	Func textWidth 
+		return QGraphicsTextItem_textWidth(pObject)
+
+	Func toHtml 
+		return QGraphicsTextItem_toHtml(pObject)
+
+	Func toPlainText 
+		return QGraphicsTextItem_toPlainText(pObject)
+
+	Func setlinkActivatedEvent P1
+		return QGraphicsTextItem_setlinkActivatedEvent(pObject,P1)
+
+	Func setlinkHoveredEvent P1
+		return QGraphicsTextItem_setlinkHoveredEvent(pObject,P1)
+
+	Func getlinkActivatedEvent 
+		return QGraphicsTextItem_getlinkActivatedEvent(pObject)
+
+	Func getlinkHoveredEvent 
+		return QGraphicsTextItem_getlinkHoveredEvent(pObject)
+
+Class QGraphicsWidget from QGraphicsObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QGraphicsWidget_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QGraphicsWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func actions 
+		return QGraphicsWidget_actions(pObject)
+
+	Func addAction P1
+		return QGraphicsWidget_addAction(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addActions P1
+		return QGraphicsWidget_addActions(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func adjustSize 
+		return QGraphicsWidget_adjustSize(pObject)
+
+	Func autoFillBackground 
+		return QGraphicsWidget_autoFillBackground(pObject)
+
+	Func focusPolicy 
+		return QGraphicsWidget_focusPolicy(pObject)
+
+	Func focusWidget 
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsWidget_focusWidget(pObject)
+		return pTempObj
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QGraphicsWidget_font(pObject)
+		return pTempObj
+
+	Func getWindowFrameMargins P1,P2,P3,P4
+		return QGraphicsWidget_getWindowFrameMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func grabShortcut P1,P2
+		return QGraphicsWidget_grabShortcut(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func insertAction P1,P2
+		return QGraphicsWidget_insertAction(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func insertActions P1,P2
+		return QGraphicsWidget_insertActions(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func isActiveWindow 
+		return QGraphicsWidget_isActiveWindow(pObject)
+
+	Func layout 
+		pTempObj = new QGraphicsLayout
+		pTempObj.pObject = QGraphicsWidget_layout(pObject)
+		return pTempObj
+
+	Func layoutDirection 
+		return QGraphicsWidget_layoutDirection(pObject)
+
+	Func paintWindowFrame P1,P2,P3
+		return QGraphicsWidget_paintWindowFrame(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func palette 
+		return QGraphicsWidget_palette(pObject)
+
+	Func rect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsWidget_rect(pObject)
+		return pTempObj
+
+	Func releaseShortcut P1
+		return QGraphicsWidget_releaseShortcut(pObject,P1)
+
+	Func removeAction P1
+		return QGraphicsWidget_removeAction(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func resize P1
+		return QGraphicsWidget_resize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func resize_2 P1,P2
+		return QGraphicsWidget_resize_2(pObject,P1,P2)
+
+	Func setAttribute P1,P2
+		return QGraphicsWidget_setAttribute(pObject,P1,P2)
+
+	Func setAutoFillBackground P1
+		return QGraphicsWidget_setAutoFillBackground(pObject,P1)
+
+	Func setContentsMargins P1
+		return QGraphicsWidget_setContentsMargins(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setContentsMargins_2 P1,P2,P3,P4
+		return QGraphicsWidget_setContentsMargins_2(pObject,P1,P2,P3,P4)
+
+	Func setFocusPolicy P1
+		return QGraphicsWidget_setFocusPolicy(pObject,P1)
+
+	Func setFont P1
+		return QGraphicsWidget_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGeometry P1,P2,P3,P4
+		return QGraphicsWidget_setGeometry(pObject,P1,P2,P3,P4)
+
+	Func setLayout P1
+		return QGraphicsWidget_setLayout(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLayoutDirection P1
+		return QGraphicsWidget_setLayoutDirection(pObject,P1)
+
+	Func setPalette P1
+		return QGraphicsWidget_setPalette(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShortcutAutoRepeat P1,P2
+		return QGraphicsWidget_setShortcutAutoRepeat(pObject,P1,P2)
+
+	Func setShortcutEnabled P1,P2
+		return QGraphicsWidget_setShortcutEnabled(pObject,P1,P2)
+
+	Func setStyle P1
+		return QGraphicsWidget_setStyle(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWindowFlags P1
+		return QGraphicsWidget_setWindowFlags(pObject,P1)
+
+	Func setWindowFrameMargins P1
+		return QGraphicsWidget_setWindowFrameMargins(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWindowFrameMargins_2 P1,P2,P3,P4
+		return QGraphicsWidget_setWindowFrameMargins_2(pObject,P1,P2,P3,P4)
+
+	Func setWindowTitle P1
+		return QGraphicsWidget_setWindowTitle(pObject,P1)
+
+	Func size 
+		return QGraphicsWidget_size(pObject)
+
+	Func style 
+		return QGraphicsWidget_style(pObject)
+
+	Func testAttribute P1
+		return QGraphicsWidget_testAttribute(pObject,P1)
+
+	Func unsetLayoutDirection 
+		return QGraphicsWidget_unsetLayoutDirection(pObject)
+
+	Func unsetWindowFrameMargins 
+		return QGraphicsWidget_unsetWindowFrameMargins(pObject)
+
+	Func windowFlags 
+		return QGraphicsWidget_windowFlags(pObject)
+
+	Func windowFrameGeometry 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsWidget_windowFrameGeometry(pObject)
+		return pTempObj
+
+	Func windowFrameRect 
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsWidget_windowFrameRect(pObject)
+		return pTempObj
+
+	Func windowTitle 
+		return QGraphicsWidget_windowTitle(pObject)
+
+	Func windowType 
+		return QGraphicsWidget_windowType(pObject)
+
+	Func close 
+		return QGraphicsWidget_close(pObject)
+
+	Func setgeometryChangedEvent P1
+		return QGraphicsWidget_setgeometryChangedEvent(pObject,P1)
+
+	Func setlayoutChangedEvent P1
+		return QGraphicsWidget_setlayoutChangedEvent(pObject,P1)
+
+	Func getgeometryChangedEvent 
+		return QGraphicsWidget_getgeometryChangedEvent(pObject)
+
+	Func getlayoutChangedEvent 
+		return QGraphicsWidget_getlayoutChangedEvent(pObject)
 
 Class QTest
 
@@ -21495,6 +24416,20 @@ Class QDragLeaveEvent from QEvent
 
 	Func delete
 		pObject = QDragLeaveEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QTransform3 from QTransform2
+
+	pObject
+
+	Func init 
+		pObject = QTransform3_new()
+		return self
+
+	Func delete
+		pObject = QTransform3_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
