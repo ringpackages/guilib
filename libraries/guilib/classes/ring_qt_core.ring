@@ -420,6 +420,9 @@ Class QUrl
 	Func swap P1
 		return QUrl_swap(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func toString P1
+		return QUrl_toString(pObject,P1)
+
 	Func toLocalFile 
 		return QUrl_toLocalFile(pObject)
 
@@ -1723,7 +1726,9 @@ Class QVariant
 		return pTempObj
 
 	Func toSizeF 
-		return QVariant_toSizeF(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QVariant_toSizeF(pObject)
+		return pTempObj
 
 	Func toStringList 
 		pTempObj = new QStringList
@@ -2980,16 +2985,16 @@ Class QString2
 		return QString2_rightJustified(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
 
 	Func section_1 P1,P2,P3,P4
-		return QString2_section_1(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_1(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func section_2 P1,P2,P3,P4
-		return QString2_section_2(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_2(pObject,P1,P2,P3,P4)
 
 	Func section_3 P1,P2,P3,P4
-		return QString2_section_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func section_4 P1,P2,P3,P4
-		return QString2_section_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func simplified 
 		return QString2_simplified(pObject)
@@ -4898,7 +4903,9 @@ Class QRectF
 		return QRectF_setY(pObject,P1)
 
 	Func size 
-		return QRectF_size(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QRectF_size(pObject)
+		return pTempObj
 
 	Func toAlignedRect 
 		pTempObj = new QRect
@@ -5264,6 +5271,632 @@ Class QLibraryInfo
 		pTempObj = new QVersionNumber
 		pTempObj.pObject = QLibraryInfo_version()
 		return pTempObj
+
+Class QElapsedTimer
+
+	pObject
+
+	Func init 
+		pObject = QElapsedTimer_new()
+		return self
+
+	Func delete
+		pObject = QElapsedTimer_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func elapsed 
+		return QElapsedTimer_elapsed(pObject)
+
+	Func hasExpired P1
+		return QElapsedTimer_hasExpired(pObject,P1)
+
+	Func invalidate 
+		return QElapsedTimer_invalidate(pObject)
+
+	Func isValid 
+		return QElapsedTimer_isValid(pObject)
+
+	Func nsecsElapsed 
+		return QElapsedTimer_nsecsElapsed(pObject)
+
+	Func restart 
+		return QElapsedTimer_restart(pObject)
+
+	Func start 
+		return QElapsedTimer_start(pObject)
+
+Class QSizeF
+
+	pObject
+
+	Func init 
+		pObject = QSizeF_new()
+		return self
+
+	Func delete
+		pObject = QSizeF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func height 
+		return QSizeF_height(pObject)
+
+	Func isEmpty 
+		return QSizeF_isEmpty(pObject)
+
+	Func isNull 
+		return QSizeF_isNull(pObject)
+
+	Func isValid 
+		return QSizeF_isValid(pObject)
+
+	Func width 
+		return QSizeF_width(pObject)
+
+	Func setHeight P1
+		return QSizeF_setHeight(pObject,P1)
+
+	Func setWidth P1
+		return QSizeF_setWidth(pObject,P1)
+
+	Func toSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QSizeF_toSize(pObject)
+		return pTempObj
+
+	Func transpose 
+		return QSizeF_transpose(pObject)
+
+	Func transposed 
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_transposed(pObject)
+		return pTempObj
+
+	Func boundedTo P1
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_boundedTo(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func expandedTo P1
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_expandedTo(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func scale P1,P2,P3
+		return QSizeF_scale(pObject,P1,P2,P3)
+
+	Func scale_2 P1,P2
+		return QSizeF_scale_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func scaled P1,P2,P3
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_scaled(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func scaled_2 P1,P2
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_scaled_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+Class QMargins
+
+	pObject
+
+	Func init 
+		pObject = QMargins_new()
+		return self
+
+	Func delete
+		pObject = QMargins_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottom 
+		return QMargins_bottom(pObject)
+
+	Func isNull 
+		return QMargins_isNull(pObject)
+
+	Func left 
+		return QMargins_left(pObject)
+
+	Func right 
+		return QMargins_right(pObject)
+
+	Func top 
+		return QMargins_top(pObject)
+
+	Func setBottom P1
+		return QMargins_setBottom(pObject,P1)
+
+	Func setLeft P1
+		return QMargins_setLeft(pObject,P1)
+
+	Func setRight P1
+		return QMargins_setRight(pObject,P1)
+
+	Func setTop P1
+		return QMargins_setTop(pObject,P1)
+
+Class QMarginsF
+
+	pObject
+
+	Func init 
+		pObject = QMarginsF_new()
+		return self
+
+	Func delete
+		pObject = QMarginsF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottom 
+		return QMarginsF_bottom(pObject)
+
+	Func isNull 
+		return QMarginsF_isNull(pObject)
+
+	Func left 
+		return QMarginsF_left(pObject)
+
+	Func right 
+		return QMarginsF_right(pObject)
+
+	Func top 
+		return QMarginsF_top(pObject)
+
+	Func setBottom P1
+		return QMarginsF_setBottom(pObject,P1)
+
+	Func setLeft P1
+		return QMarginsF_setLeft(pObject,P1)
+
+	Func setRight P1
+		return QMarginsF_setRight(pObject,P1)
+
+	Func setTop P1
+		return QMarginsF_setTop(pObject,P1)
+
+	Func toMargins 
+		pTempObj = new QMargins
+		pTempObj.pObject = QMarginsF_toMargins(pObject)
+		return pTempObj
+
+Class QSettings from QObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QSettings_new(P1,P2)
+		return self
+
+	Func delete
+		pObject = QSettings_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func allKeys 
+		pTempObj = new QStringList
+		pTempObj.pObject = QSettings_allKeys(pObject)
+		return pTempObj
+
+	Func applicationName 
+		return QSettings_applicationName(pObject)
+
+	Func beginGroup P1
+		return QSettings_beginGroup(pObject,P1)
+
+	Func beginReadArray P1
+		return QSettings_beginReadArray(pObject,P1)
+
+	Func beginWriteArray P1,P2
+		return QSettings_beginWriteArray(pObject,P1,P2)
+
+	Func childGroups 
+		pTempObj = new QStringList
+		pTempObj.pObject = QSettings_childGroups(pObject)
+		return pTempObj
+
+	Func childKeys 
+		pTempObj = new QStringList
+		pTempObj.pObject = QSettings_childKeys(pObject)
+		return pTempObj
+
+	Func clear 
+		return QSettings_clear(pObject)
+
+	Func contains P1
+		return QSettings_contains(pObject,P1)
+
+	Func endArray 
+		return QSettings_endArray(pObject)
+
+	Func endGroup 
+		return QSettings_endGroup(pObject)
+
+	Func fallbacksEnabled 
+		return QSettings_fallbacksEnabled(pObject)
+
+	Func fileName 
+		return QSettings_fileName(pObject)
+
+	Func format 
+		return QSettings_format(pObject)
+
+	Func group 
+		return QSettings_group(pObject)
+
+	Func isWritable 
+		return QSettings_isWritable(pObject)
+
+	Func organizationName 
+		return QSettings_organizationName(pObject)
+
+	Func remove P1
+		return QSettings_remove(pObject,P1)
+
+	Func scope 
+		return QSettings_scope(pObject)
+
+	Func setArrayIndex P1
+		return QSettings_setArrayIndex(pObject,P1)
+
+	Func setFallbacksEnabled P1
+		return QSettings_setFallbacksEnabled(pObject,P1)
+
+	Func setValue P1,P2
+		return QSettings_setValue(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func status 
+		return QSettings_status(pObject)
+
+	Func sync 
+		return QSettings_sync(pObject)
+
+	Func value P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QSettings_value(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+Class QDataStream
+
+	pObject
+
+	Func init P1
+		pObject = QDataStream_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDataStream_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func atEnd 
+		return QDataStream_atEnd(pObject)
+
+	Func byteOrder 
+		return QDataStream_byteOrder(pObject)
+
+	Func device 
+		pTempObj = new QIODevice
+		pTempObj.pObject = QDataStream_device(pObject)
+		return pTempObj
+
+	Func floatingPointPrecision 
+		return QDataStream_floatingPointPrecision(pObject)
+
+	Func resetStatus 
+		return QDataStream_resetStatus(pObject)
+
+	Func setByteOrder P1
+		return QDataStream_setByteOrder(pObject,P1)
+
+	Func setDevice P1
+		return QDataStream_setDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFloatingPointPrecision P1
+		return QDataStream_setFloatingPointPrecision(pObject,P1)
+
+	Func setStatus P1
+		return QDataStream_setStatus(pObject,P1)
+
+	Func setVersion P1
+		return QDataStream_setVersion(pObject,P1)
+
+	Func skipRawData P1
+		return QDataStream_skipRawData(pObject,P1)
+
+	Func status 
+		return QDataStream_status(pObject)
+
+	Func version 
+		return QDataStream_version(pObject)
+
+Class QSortFilterProxyModel from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QSortFilterProxyModel_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSortFilterProxyModel_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func dynamicSortFilter 
+		return QSortFilterProxyModel_dynamicSortFilter(pObject)
+
+	Func filterCaseSensitivity 
+		return QSortFilterProxyModel_filterCaseSensitivity(pObject)
+
+	Func filterKeyColumn 
+		return QSortFilterProxyModel_filterKeyColumn(pObject)
+
+	Func filterRegularExpression 
+		pTempObj = new QRegularExpression
+		pTempObj.pObject = QSortFilterProxyModel_filterRegularExpression(pObject)
+		return pTempObj
+
+	Func filterRole 
+		return QSortFilterProxyModel_filterRole(pObject)
+
+	Func isRecursiveFilteringEnabled 
+		return QSortFilterProxyModel_isRecursiveFilteringEnabled(pObject)
+
+	Func isSortLocaleAware 
+		return QSortFilterProxyModel_isSortLocaleAware(pObject)
+
+	Func mapFromSource P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_mapFromSource(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToSource P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_mapToSource(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setDynamicSortFilter P1
+		return QSortFilterProxyModel_setDynamicSortFilter(pObject,P1)
+
+	Func setFilterCaseSensitivity P1
+		return QSortFilterProxyModel_setFilterCaseSensitivity(pObject,P1)
+
+	Func setFilterKeyColumn P1
+		return QSortFilterProxyModel_setFilterKeyColumn(pObject,P1)
+
+	Func setFilterRole P1
+		return QSortFilterProxyModel_setFilterRole(pObject,P1)
+
+	Func setRecursiveFilteringEnabled P1
+		return QSortFilterProxyModel_setRecursiveFilteringEnabled(pObject,P1)
+
+	Func setSortCaseSensitivity P1
+		return QSortFilterProxyModel_setSortCaseSensitivity(pObject,P1)
+
+	Func setSortLocaleAware P1
+		return QSortFilterProxyModel_setSortLocaleAware(pObject,P1)
+
+	Func setSortRole P1
+		return QSortFilterProxyModel_setSortRole(pObject,P1)
+
+	Func sortCaseSensitivity 
+		return QSortFilterProxyModel_sortCaseSensitivity(pObject)
+
+	Func sortColumn 
+		return QSortFilterProxyModel_sortColumn(pObject)
+
+	Func sortOrder 
+		return QSortFilterProxyModel_sortOrder(pObject)
+
+	Func sortRole 
+		return QSortFilterProxyModel_sortRole(pObject)
+
+	Func sourceModel 
+		return QSortFilterProxyModel_sourceModel(pObject)
+
+	Func setSourceModel P1
+		return QSortFilterProxyModel_setSourceModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func invalidate 
+		return QSortFilterProxyModel_invalidate(pObject)
+
+	Func setFilterFixedString P1
+		return QSortFilterProxyModel_setFilterFixedString(pObject,P1)
+
+	Func setFilterRegularExpression_2 P1
+		return QSortFilterProxyModel_setFilterRegularExpression_2(pObject,P1)
+
+	Func setFilterWildcard P1
+		return QSortFilterProxyModel_setFilterWildcard(pObject,P1)
+
+	Func sort P1,P2
+		return QSortFilterProxyModel_sort(pObject,P1,P2)
+
+	Func columnCount P1
+		return QSortFilterProxyModel_columnCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func data P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QSortFilterProxyModel_data(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func flags P1
+		return QSortFilterProxyModel_flags(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func hasChildren P1
+		return QSortFilterProxyModel_hasChildren(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func headerData P1,P2,P3
+		pTempObj = new QVariant
+		pTempObj.pObject = QSortFilterProxyModel_headerData(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func index P1,P2,P3
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_index(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func insertColumns P1,P2,P3
+		return QSortFilterProxyModel_insertColumns(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func insertRows P1,P2,P3
+		return QSortFilterProxyModel_insertRows(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func parent P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_parent(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func removeColumns P1,P2,P3
+		return QSortFilterProxyModel_removeColumns(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func removeRows P1,P2,P3
+		return QSortFilterProxyModel_removeRows(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func rowCount P1
+		return QSortFilterProxyModel_rowCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setData P1,P2,P3
+		return QSortFilterProxyModel_setData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func setHeaderData P1,P2,P3,P4
+		return QSortFilterProxyModel_setHeaderData(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func sibling P1,P2,P3
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_sibling(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+Class QFileSystemWatcher from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QFileSystemWatcher_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QFileSystemWatcher_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addPath P1
+		return QFileSystemWatcher_addPath(pObject,P1)
+
+	Func addPaths P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_addPaths(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func directories 
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_directories(pObject)
+		return pTempObj
+
+	Func files 
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_files(pObject)
+		return pTempObj
+
+	Func removePath P1
+		return QFileSystemWatcher_removePath(pObject,P1)
+
+	Func removePaths P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_removePaths(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setdirectoryChangedEvent P1
+		return QFileSystemWatcher_setdirectoryChangedEvent(pObject,P1)
+
+	Func setfileChangedEvent P1
+		return QFileSystemWatcher_setfileChangedEvent(pObject,P1)
+
+	Func getdirectoryChangedEvent 
+		return QFileSystemWatcher_getdirectoryChangedEvent(pObject)
+
+	Func getfileChangedEvent 
+		return QFileSystemWatcher_getfileChangedEvent(pObject)
+
+Class QTemporaryFile from QFile
+
+	pObject
+
+	Func init 
+		pObject = QTemporaryFile_new()
+		return self
+
+	Func delete
+		pObject = QTemporaryFile_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func autoRemove 
+		return QTemporaryFile_autoRemove(pObject)
+
+	Func fileName 
+		return QTemporaryFile_fileName(pObject)
+
+	Func fileTemplate 
+		return QTemporaryFile_fileTemplate(pObject)
+
+	Func open 
+		return QTemporaryFile_open(pObject)
+
+	Func setAutoRemove P1
+		return QTemporaryFile_setAutoRemove(pObject,P1)
+
+	Func setFileTemplate P1
+		return QTemporaryFile_setFileTemplate(pObject,P1)
+
+Class QSaveFile from QFileDevice
+
+	pObject
+
+	Func init P1
+		pObject = QSaveFile_new(P1)
+		return self
+
+	Func delete
+		pObject = QSaveFile_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func cancelWriting 
+		return QSaveFile_cancelWriting(pObject)
+
+	Func commit 
+		return QSaveFile_commit(pObject)
+
+	Func directWriteFallback 
+		return QSaveFile_directWriteFallback(pObject)
+
+	Func fileName 
+		return QSaveFile_fileName(pObject)
+
+	Func setDirectWriteFallback P1
+		return QSaveFile_setDirectWriteFallback(pObject,P1)
+
+	Func setFileName P1
+		return QSaveFile_setFileName(pObject,P1)
+
+	Func open P1
+		return QSaveFile_open(pObject,P1)
 
 Class QSize
 
